@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LeadFlow Community | Join the Elite Network</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .whatsapp-gradient {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+        .glass-header {
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#dbe1ff",
+                        "on-tertiary-container": "#ffede6",
+                        "inverse-surface": "#283044",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#007432",
+                        "secondary-container": "#6bff8f",
+                        "error": "#ba1a1a",
+                        "on-surface": "#131b2e",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#002109",
+                        "on-primary-fixed": "#00174b",
+                        "primary-container": "#2563eb",
+                        "outline": "#737686",
+                        "surface-container-low": "#f2f3ff",
+                        "surface": "#faf8ff",
+                        "primary": "#004ac6",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#dae2fd",
+                        "on-tertiary-fixed": "#360f00",
+                        "outline-variant": "#c3c6d7",
+                        "background": "#faf8ff",
+                        "on-primary-container": "#eeefff",
+                        "on-surface-variant": "#434655",
+                        "surface-dim": "#d2d9f4",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container": "#eaedff",
+                        "inverse-on-surface": "#eef0ff",
+                        "tertiary": "#943700",
+                        "secondary-fixed": "#6bff8f",
+                        "secondary-fixed-dim": "#4ae176",
+                        "surface-bright": "#faf8ff",
+                        "on-secondary-fixed-variant": "#005321",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#0053db",
+                        "surface-container-high": "#e2e7ff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "tertiary-container": "#bc4800",
+                        "on-error": "#ffffff",
+                        "on-background": "#131b2e",
+                        "surface-container-highest": "#dae2fd",
+                        "secondary": "#006e2f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xl": "32px",
+                        "2xl": "48px",
+                        "gutter": "16px",
+                        "container-margin": "20px",
+                        "sm": "8px",
+                        "3xl": "64px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-lg shadow-sm">
+<div class="flex justify-between items-center px-container-margin py-md w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="groups">groups</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">LeadFlow</span>
+</div>
+<nav class="hidden md:flex gap-lg items-center">
+<a class="text-on-surface-variant font-label-md hover:opacity-80 transition-opacity" href="#benefits">Benefits</a>
+<a class="text-on-surface-variant font-label-md hover:opacity-80 transition-opacity" href="#faq">FAQ</a>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-xl font-label-md active:scale-95 transition-transform">Join Now</button>
+</nav>
+<button class="md:hidden bg-primary text-on-primary px-md py-xs rounded-lg font-label-sm active:scale-95 transition-transform">Join Now</button>
+</div>
+</header>
+<main class="pt-24 pb-20">
+<!-- Hero Section -->
+<section class="px-container-margin py-3xl text-center flex flex-col items-center gap-lg">
+<div class="inline-flex items-center gap-xs px-md py-xs bg-primary-fixed text-on-primary-fixed rounded-full font-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>LIMITED TO 5,000 MEMBERS</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-display-lg md:text-display-lg text-on-surface leading-tight">
+                Join the Elite <span class="text-primary">Marketing</span> Community
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Connect with top industry experts, access daily insights, and scale your leads through our private WhatsApp network.
+            </p>
+<div class="w-full max-w-md space-y-md">
+<a class="flex items-center justify-center gap-sm w-full h-[56px] whatsapp-gradient text-white rounded-xl font-label-md shadow-lg active:scale-95 transition-all transform hover:scale-[1.02]" href="https://wa.me/1234567890">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                    Join WhatsApp Now
+                </a>
+<p class="font-label-sm text-label-sm text-outline">
+                    You will be redirected to WhatsApp after clicking.
+                </p>
+</div>
+<!-- Trust Indicators -->
+<div class="mt-xl flex flex-col items-center gap-md">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-white bg-surface-variant flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A high-quality professional headshot of a smiling business professional in a light-mode studio setting. The lighting is soft and airy, emphasizing trust and competence. The background is a clean, neutral white tone that fits a modern SaaS aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS4lPJ1dnKFyjA_juYOluvnCkx4YMILp04cG-neOWOBEYBjTtyofYqhOPr1ilLEqYZ6lv_uiqS13qsKDYKba96qIO8zSTzVRPnsbMnzYdAI71ROHsnJ8IYAmK-wpdPN9IjZxN87vsI4ny-f8axT5E7ci91OKcvsQC4YTnRwVtjtL6FJ9xIjnNP7-4ro5wljO5HVYLdVyU-Go4LFV0Xd9ZYiBC-7Em8TGO9SsfV_YSR0RdKjV5j4f_p"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-surface-variant flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a diverse female entrepreneur looking confidently at the camera. The image has a bright, modern lighting style with high-key whites and subtle primary blue highlights in the environment, creating a clean corporate feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIlcbrFjWhW099uZeiFDxn2r4x7OEzLOMzsUpqWVbs3LuB3TKt7iX-BQNlLTrSf0ep8HgoO0zONCBJybwV1LrPvV5i_3TrXmlLu-nc-Un_RcZ6Wtk5A2i6ctjjcjPCMBeU7-hg9HFcj2kwALwhEpG80Df8WVEw4GXD40N2fCRKBeZxjFzV5kW4cPEgBkGjjcN1atBY7FiYBMk0HDxg6hGFi-yY8Eh_2_2uLmEUnr2JGuLgwRdvGl2m"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-surface-variant flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional male professional with a warm, welcoming expression. The photo is set against a bright, minimalist office background with soft focus. The aesthetic is clean, professional, and optimized for a modern business landing page." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuBjjGuU0nO4RgTUE5qPDXCGI1svNCbcpiAV1dSiOfmeTL9XfdHC4Qkh7iatQUw6KGYkKIPwfW8NYh3DrTcRfqLii_5p-7godZ7VlLHv_YBFcRtLtK5PBiIw_9phgYkdhH-3p0t4puRKuxXu9sH9FJOrTMLK4srHl4oLKsuwuKuIhleedsQmZeZI1AC8u0MJt25PZeFqSAri_HVWqeJ3muHzOnQusJjxYjAL4cCyEAaTbREHWyEEi6"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-primary text-white flex items-center justify-center text-[10px] font-bold">
+                        5k+
+                    </div>
+</div>
+<p class="font-label-md text-label-md text-on-surface">Trusted by 5,000+ industry members</p>
+</div>
+</section>
+<!-- Benefit Cards -->
+<section class="px-container-margin py-3xl bg-surface-container-low" id="benefits">
+<div class="max-w-7xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-center mb-2xl text-on-surface">Everything you need to grow</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Benefit 1 -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 group hover:border-primary transition-colors">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary mb-md group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+</div>
+<h3 class="font-headline-md text-[20px] mb-sm text-on-surface">Daily Insights</h3>
+<p class="font-body-md text-on-surface-variant">Get fresh marketing strategies and lead generation tactics delivered directly to your phone every morning.</p>
+</div>
+<!-- Benefit 2 -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 group hover:border-primary transition-colors">
+<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container mb-md group-hover:bg-secondary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</div>
+<h3 class="font-headline-md text-[20px] mb-sm text-on-surface">Expert Support</h3>
+<p class="font-body-md text-on-surface-variant">Direct access to experienced moderators who help you solve complex business hurdles in real-time.</p>
+</div>
+<!-- Benefit 3 -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30 group hover:border-primary transition-colors">
+<div class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant mb-md group-hover:bg-tertiary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+</div>
+<h3 class="font-headline-md text-[20px] mb-sm text-on-surface">Networking</h3>
+<p class="font-body-md text-on-surface-variant">Join a massive network of like-minded professionals to find partners, clients, and new opportunities.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="px-container-margin py-3xl">
+<div class="max-w-7xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-center mb-2xl text-on-surface">Community Praise</h2>
+<div class="flex flex-col md:flex-row gap-lg">
+<div class="flex-1 bg-surface-container p-lg rounded-xl italic text-on-surface-variant relative">
+<span class="material-symbols-outlined absolute -top-4 -left-2 text-primary opacity-20 text-[48px]" data-icon="format_quote">format_quote</span>
+<p class="mb-md">"The daily insights alone have doubled my outreach response rate. Best WhatsApp group I've ever joined."</p>
+<div class="flex items-center gap-sm not-italic">
+<div class="w-8 h-8 rounded-full bg-outline-variant"></div>
+<div>
+<p class="font-label-md text-on-surface">Sarah J.</p>
+<p class="text-[10px] uppercase tracking-wider text-primary font-bold">SEO Specialist</p>
+</div>
+</div>
+</div>
+<div class="flex-1 bg-surface-container p-lg rounded-xl italic text-on-surface-variant relative">
+<span class="material-symbols-outlined absolute -top-4 -left-2 text-primary opacity-20 text-[48px]" data-icon="format_quote">format_quote</span>
+<p class="mb-md">"Real people, real results. No spam, just high-value networking that actually converts into business."</p>
+<div class="flex items-center gap-sm not-italic">
+<div class="w-8 h-8 rounded-full bg-outline-variant"></div>
+<div>
+<p class="font-label-md text-on-surface">Mark R.</p>
+<p class="text-[10px] uppercase tracking-wider text-primary font-bold">SaaS Founder</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="px-container-margin py-3xl bg-surface-container-low" id="faq">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-center mb-2xl text-on-surface">Frequently Asked Questions</h2>
+<div class="space-y-md">
+<details class="bg-white rounded-xl overflow-hidden group border border-outline-variant/30">
+<summary class="flex justify-between items-center p-lg cursor-pointer list-none font-label-md text-on-surface group-open:bg-primary group-open:text-white transition-all">
+                            Is it really free?
+                            <span class="material-symbols-outlined transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="p-lg font-body-md text-on-surface-variant">
+                            Yes, basic membership is 100% free. We believe in providing value first to build a strong community.
+                        </div>
+</details>
+<details class="bg-white rounded-xl overflow-hidden group border border-outline-variant/30">
+<summary class="flex justify-between items-center p-lg cursor-pointer list-none font-label-md text-on-surface group-open:bg-primary group-open:text-white transition-all">
+                            What is the message frequency?
+                            <span class="material-symbols-outlined transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="p-lg font-body-md text-on-surface-variant">
+                            We value your time. We send one major update per day, with active discussions happening in separate threads to avoid notification fatigue.
+                        </div>
+</details>
+<details class="bg-white rounded-xl overflow-hidden group border border-outline-variant/30">
+<summary class="flex justify-between items-center p-lg cursor-pointer list-none font-label-md text-on-surface group-open:bg-primary group-open:text-white transition-all">
+                            How do I leave the group?
+                            <span class="material-symbols-outlined transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="p-lg font-body-md text-on-surface-variant">
+                            You can exit the WhatsApp community at any time with just one tap. No strings attached.
+                        </div>
+</details>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="px-container-margin py-3xl text-center bg-primary-fixed/30 relative overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-10">
+
+</div>
+<div class="max-w-2xl mx-auto relative z-10 flex flex-col items-center gap-lg">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Ready to scale your network?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Join 5,000+ elite members today. The next big opportunity is just one message away.</p>
+<div class="w-full max-w-sm space-y-md">
+<a class="flex items-center justify-center gap-sm w-full h-[56px] whatsapp-gradient text-white rounded-xl font-label-md shadow-xl active:scale-95 transition-all" href="https://wa.me/1234567890">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                        Join WhatsApp Now
+                    </a>
+<div class="flex items-center justify-center gap-xs text-secondary font-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Secure &amp; Private Connection</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-high dark:bg-surface-container-highest">
+<div class="flex flex-col items-center gap-md px-container-margin py-3xl w-full text-center max-w-7xl mx-auto">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary" data-icon="groups">groups</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">LeadFlow</span>
+</div>
+<div class="flex flex-wrap justify-center gap-lg mb-lg">
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<p class="font-body-md text-on-surface dark:text-on-surface-variant opacity-60">© 2024 LeadFlow Community. All rights reserved.</p>
+</div>
+</footer>
+<!-- Mobile Bottom Navigation (Hidden on desktop) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-sm pb-safe bg-surface-container-lowest shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 transition-all duration-200" href="#benefits">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="font-label-sm text-label-sm">Benefits</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 transition-all duration-200" href="#faq">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-sm text-label-sm">FAQ</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction: Reveal sections on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'translate-y-10', 'opacity-0');
+            observer.observe(section);
+        });
+
+        // Ensure the active state of navigation links reflects the current section
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section[id]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Note: Simplistic mapping for this demo
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href').substring(1);
+                if (href === current) {
+                    // Application of active styles would go here if not handled by standard CSS
+                }
+            });
+        });
+    </script>
+</body></html>

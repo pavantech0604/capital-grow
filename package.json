@@ -1,0 +1,17 @@
+{
+  "name": "capital-grow-landing-page",
+  "version": "1.0.0",
+  "description": "Premium conversion-focused WhatsApp lead generation landing page for Capital Grow",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx -y http-server . -p 8080 -o",
+    "dev": "npx -y http-server . -p 8080 -o",
+    "serve": "npx -y http-server . -p 8080 -o"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
