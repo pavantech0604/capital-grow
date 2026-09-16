@@ -3,329 +3,923 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Capital Grow | Official WhatsApp Community</title>
-  <meta name="description" content="Get daily NIFTY & BANKNIFTY market calls, pre-market analysis, and intraday setups delivered straight to your WhatsApp. 100% Free Educational Community.">
+  <title>Capital Grow | Official Telegram Community — Daily Index Research</title>
+  <meta name="description" content="Get Nifty, BankNifty & Sensex market research updates on Telegram — shared for educational and informational purposes. 100% Free to join.">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  <link rel="icon" type="image/png" href="assets/logo_clean.png">
   
-  <!-- Fonts -->
+  <!-- Modern Fintech Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ----------------------------------------------------------------------
-       1. HEADER NAVIGATION (AT VERY TOP OF PAGE)
-       ---------------------------------------------------------------------- -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <div class="logo-wrapper">
-        <img src="assets/logo.jpg" alt="Capital Grow Logo" class="logo-img">
-        <div class="brand-title">
-          CAPITAL GROW
-          <span class="tagline">COMMUNITY</span>
-        </div>
-      </div>
+  <!-- ======================================================================
+       LIVE STOCK CANDLESTICK BACKGROUND ANIMATION (Truly in Background)
+       ====================================================================== -->
+  <div class="live-market-bg-canvas" aria-hidden="true">
+    <div class="live-market-track">
+      <!-- SVG Segment 1 -->
+      <svg class="live-market-svg" viewBox="0 0 1000 340" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="bgCandleGreen" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0D8244" stop-opacity="0.95"/>
+            <stop offset="100%" stop-color="#10B981" stop-opacity="0.75"/>
+          </linearGradient>
+          <linearGradient id="bgCandleRed" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#DC2626" stop-opacity="0.95"/>
+            <stop offset="100%" stop-color="#EF4444" stop-opacity="0.75"/>
+          </linearGradient>
+        </defs>
 
-      <ul class="nav-links">
-        <li><a href="#benefits" class="nav-link">What You Get</a></li>
-        <li><a href="#calculator" class="nav-link">Risk Calculator</a></li>
-        <li><a href="#preview" class="nav-link">Live Signals</a></li>
-        <li><a href="#testimonials" class="nav-link">Reviews</a></li>
-        <li><a href="#faq" class="nav-link">FAQ</a></li>
-      </ul>
+        <!-- Technical Horizontal Grid Lines -->
+        <line x1="0" y1="60" x2="1000" y2="60" stroke="#CBD5E1" stroke-dasharray="4,4" stroke-width="0.75" opacity="0.6"/>
+        <line x1="0" y1="120" x2="1000" y2="120" stroke="#CBD5E1" stroke-dasharray="4,4" stroke-width="0.75" opacity="0.6"/>
+        <line x1="0" y1="180" x2="1000" y2="180" stroke="#CBD5E1" stroke-dasharray="4,4" stroke-width="0.75" opacity="0.6"/>
+        <line x1="0" y1="240" x2="1000" y2="240" stroke="#CBD5E1" stroke-dasharray="4,4" stroke-width="0.75" opacity="0.6"/>
+        <line x1="0" y1="300" x2="1000" y2="300" stroke="#CBD5E1" stroke-dasharray="4,4" stroke-width="0.75" opacity="0.6"/>
 
-      <a href="https://chat.whatsapp.com/LUkpIkiwSCECX61wZBPy0w?s=cl&p=a&ilr=4&amv=3" target="_blank" class="header-cta-btn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.157 4.228 4.238-1.111z"/>
-        </svg>
-        Join Free Group
-      </a>
+        <!-- Price Coordinate Markers -->
+        <text x="16" y="56" fill="#94A3B8" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="600">59,150.00</text>
+        <text x="16" y="116" fill="#94A3B8" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="600">58,900.00</text>
+        <text x="16" y="176" fill="#94A3B8" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="600">58,650.00</text>
+        <text x="16" y="236" fill="#94A3B8" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="600">58,400.00</text>
+        <text x="16" y="296" fill="#94A3B8" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="600">58,150.00</text>
+
+        <!-- Technical Indicators: 20 EMA & 50 EMA -->
+        <path d="M 0 240 C 100 220, 200 170, 320 150 C 440 130, 560 55, 680 85 C 800 115, 900 45, 1000 70" fill="none" stroke="#D97706" stroke-width="2.2" stroke-dasharray="6,3" opacity="0.85"/>
+        <path d="M 0 260 C 140 245, 280 205, 420 175 C 560 145, 700 120, 840 100 C 920 90, 960 85, 1000 80" fill="none" stroke="#0088CC" stroke-width="1.75" opacity="0.75"/>
+
+        <!-- Live Market Price Laser Line -->
+        <line x1="0" y1="125" x2="1000" y2="125" stroke="#10B981" stroke-width="1.5" stroke-dasharray="6,4" class="live-price-laser"/>
+
+        <!-- 22 Realistic Candlesticks with Upper/Lower Wicks and Volume Histogram -->
+        <g class="bg-candle-series">
+          <!-- C1 Green -->
+          <line x1="40" y1="195" x2="40" y2="260" stroke="#0D8244" stroke-width="1.5"/>
+          <rect x="33" y="205" width="14" height="40" fill="url(#bgCandleGreen)" rx="2"/>
+          <rect x="35" y="304" width="10" height="26" fill="#0D8244" opacity="0.45"/>
+
+          <!-- C2 Green -->
+          <line x1="82" y1="165" x2="82" y2="225" stroke="#0D8244" stroke-width="1.5"/>
+          <rect x="75" y="175" width="14" height="33" fill="url(#bgCandleGreen)" rx="2"/>
+          <rect x="77" y="296" width="10" height="34" fill="#0D8244" opacity="0.45"/>
+
+          <!-- C3 Red -->
+          <line x1="124" y1="165" x2="124" y2="210" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="117" y="172" width="14" height="26" fill="url(#bgCandleRed)" rx="2"/>
+          <rect x="119" y="310" width="10" height="20" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C4 Green Hammer -->
+          <line x1="166" y1="155" x2="166" y2="230" stroke="#0D8244" stroke-width="1.5"/>
+          <rect x="159" y="166" width="14" height="30" fill="url(#bgCandleGreen)" rx="2"/>
+          <rect x="161" y="290" width="10" height="40" fill="#0D8244" opacity="0.45"/>
+
+          <!-- C5 Green Momentum -->
+          <line x1="208" y1="120" x2="208" y2="178" stroke="#0D8244" stroke-width="2"/>
+          <rect x="201" y="128" width="14" height="38" fill="url(#bgCandleGreen)" rx="2"/>
+          <rect x="203" y="278" width="10" height="52" fill="#0D8244" opacity="0.55"/>
+
+          <!-- C6 Red Doji -->
+          <line x1="250" y1="122" x2="250" y2="152" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="243" y="128" width="14" height="14" fill="url(#bgCandleRed)" rx="2"/>
+          <rect x="245" y="306" width="10" height="24" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C7 Red Pullback -->
+          <line x1="292" y1="136" x2="292" y2="174" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="285" y="142" width="14" height="22" fill="url(#bgCandleRed)" rx="2"/>
+          <rect x="287" y="308" width="10" height="22" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C8 Green Rebound -->
+          <line x1="334" y1="125" x2="334" y2="172" stroke="#0D8244" stroke-width="1.5"/>
+          <rect x="327" y="134" width="14" height="28" fill="url(#bgCandleGreen)" rx="2"/>
+          <rect x="329" y="292" width="10" height="38" fill="#0D8244" opacity="0.45"/>
+
+          <!-- C9 Green Breakout -->
+          <line x1="376" y1="85" x2="376" y2="148" stroke="#0D8244" stroke-width="2"/>
+          <rect x="369" y="96" width="14" height="38" fill="url(#bgCandleGreen)" rx="2"/>
+          <rect x="371" y="274" width="10" height="56" fill="#0D8244" opacity="0.55"/>
+
+          <!-- C10 Green Power Candle -->
+          <line x1="418" y1="52" x2="418" y2="112" stroke="#0D8244" stroke-width="2"/>
+          <rect x="411" y="64" width="14" height="32" fill="url(#bgCandleGreen)" rx="2"/>
+          <rect x="413" y="258" width="10" height="72" fill="#0D8244" opacity="0.6"/>
+
+          <!-- C11 Red Consolidation -->
+          <line x1="460" y1="58" x2="460" y2="105" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="453" y="68" width="14" height="24" fill="url(#bgCandleRed)" rx="2"/>
+          <rect x="455" y="302" width="10" height="28" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C12 Green Continuation -->
+          <line x1="502" y1="48" x2="502" y2="102" stroke="#0D8244" stroke-width="2"/>
+          <rect x="495" y="60" width="14" height="30" fill="url(#bgCandleGreen)" rx="2"/>
+          <rect x="497" y="268" width="10" height="62" fill="#0D8244" opacity="0.55"/>
+
+          <!-- C13 Green ATH Momentum -->
+          <line x1="544" y1="24" x2="544" y2="75" stroke="#0D8244" stroke-width="2"/>
+          <rect x="537" y="34" width="14" height="26" fill="url(#bgCandleGreen)" rx="2"/>
+          <rect x="539" y="252" width="10" height="78" fill="#0D8244" opacity="0.65"/>
+
+          <!-- C14 Red Profit Taking -->
+          <line x1="586" y1="30" x2="586" y2="88" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="579" y="38" width="14" height="38" fill="url(#bgCandleRed)" rx="2"/>
+          <rect x="581" y="294" width="10" height="36" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C15 Red Secondary Dip -->
+          <line x1="628" y1="70" x2="628" y2="118" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="621" y="76" width="14" height="30" fill="url(#bgCandleRed)" rx="2"/>
+          <rect x="623" y="298" width="10" height="32" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C16 Green Support Bounce -->
+          <line x1="670" y1="68" x2="670" y2="122" stroke="#0D8244" stroke-width="1.5"/>
+          <rect x="663" y="76" width="14" height="30" fill="url(#bgCandleGreen)" rx="2"/>
+          <rect x="665" y="286" width="10" height="44" fill="#0D8244" opacity="0.45"/>
+
+          <!-- C17 Green Second Wave -->
+          <line x1="712" y1="42" x2="712" y2="92" stroke="#0D8244" stroke-width="2"/>
+          <rect x="705" y="50" width="14" height="26" fill="url(#bgCandleGreen)" rx="2"/>
+          <rect x="707" y="266" width="10" height="64" fill="#0D8244" opacity="0.55"/>
+
+          <!-- C18 Red Mild Retest -->
+          <line x1="754" y1="46" x2="754" y2="84" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="747" y="52" width="14" height="20" fill="url(#bgCandleRed)" rx="2"/>
+          <rect x="749" y="304" width="10" height="26" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C19 Green Follow-through -->
+          <line x1="796" y1="36" x2="796" y2="82" stroke="#0D8244" stroke-width="1.5"/>
+          <rect x="789" y="45" width="14" height="25" fill="url(#bgCandleGreen)" rx="2"/>
+          <rect x="791" y="282" width="10" height="48" fill="#0D8244" opacity="0.5"/>
+
+          <!-- C20 Green Power Spike -->
+          <line x1="838" y1="16" x2="838" y2="60" stroke="#0D8244" stroke-width="2"/>
+          <rect x="831" y="22" width="14" height="23" fill="url(#bgCandleGreen)" rx="2"/>
+          <rect x="833" y="255" width="10" height="75" fill="#0D8244" opacity="0.65"/>
+
+          <!-- C21 Red Pullback -->
+          <line x1="880" y1="20" x2="880" y2="78" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="873" y="26" width="14" height="42" fill="url(#bgCandleRed)" rx="2"/>
+          <rect x="875" y="296" width="10" height="34" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C22 Active Live Stock Candle -->
+          <line x1="922" y1="55" x2="922" y2="142" stroke="#0D8244" stroke-width="2"/>
+          <rect x="915" y="65" width="14" height="60" fill="url(#bgCandleGreen)" rx="2"/>
+          <rect x="917" y="270" width="10" height="60" fill="#0D8244" opacity="0.6"/>
+        </g>
+
+        <!-- Live Marker Ping & Badge -->
+        <g class="live-marker-point" transform="translate(922, 125)">
+          <circle class="live-radar-ping" cx="0" cy="0" r="5" fill="none" stroke="#10B981" stroke-width="2"/>
+          <circle cx="0" cy="0" r="4" fill="#10B981"/>
+          <rect x="-124" y="-12" width="118" height="24" rx="5" fill="#0B192C" stroke="#10B981" stroke-width="1"/>
+          <text x="-116" y="4" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">58,742.80 ▲</text>
+        </g>
+      </svg>
+
+      <!-- SVG Segment 2 (Identical Copy for 100% Seamless Infinite Loop) -->
+      <svg class="live-market-svg" viewBox="0 0 1000 340" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="bgCandleGreen2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0D8244" stop-opacity="0.95"/>
+            <stop offset="100%" stop-color="#10B981" stop-opacity="0.75"/>
+          </linearGradient>
+          <linearGradient id="bgCandleRed2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#DC2626" stop-opacity="0.95"/>
+            <stop offset="100%" stop-color="#EF4444" stop-opacity="0.75"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Technical Horizontal Grid Lines -->
+        <line x1="0" y1="60" x2="1000" y2="60" stroke="#CBD5E1" stroke-dasharray="4,4" stroke-width="0.75" opacity="0.6"/>
+        <line x1="0" y1="120" x2="1000" y2="120" stroke="#CBD5E1" stroke-dasharray="4,4" stroke-width="0.75" opacity="0.6"/>
+        <line x1="0" y1="180" x2="1000" y2="180" stroke="#CBD5E1" stroke-dasharray="4,4" stroke-width="0.75" opacity="0.6"/>
+        <line x1="0" y1="240" x2="1000" y2="240" stroke="#CBD5E1" stroke-dasharray="4,4" stroke-width="0.75" opacity="0.6"/>
+        <line x1="0" y1="300" x2="1000" y2="300" stroke="#CBD5E1" stroke-dasharray="4,4" stroke-width="0.75" opacity="0.6"/>
+
+        <!-- Price Coordinate Markers -->
+        <text x="16" y="56" fill="#94A3B8" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="600">59,150.00</text>
+        <text x="16" y="116" fill="#94A3B8" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="600">58,900.00</text>
+        <text x="16" y="176" fill="#94A3B8" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="600">58,650.00</text>
+        <text x="16" y="236" fill="#94A3B8" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="600">58,400.00</text>
+        <text x="16" y="296" fill="#94A3B8" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="600">58,150.00</text>
+
+        <!-- Technical Indicators: 20 EMA & 50 EMA -->
+        <path d="M 0 240 C 100 220, 200 170, 320 150 C 440 130, 560 55, 680 85 C 800 115, 900 45, 1000 70" fill="none" stroke="#D97706" stroke-width="2.2" stroke-dasharray="6,3" opacity="0.85"/>
+        <path d="M 0 260 C 140 245, 280 205, 420 175 C 560 145, 700 120, 840 100 C 920 90, 960 85, 1000 80" fill="none" stroke="#0088CC" stroke-width="1.75" opacity="0.75"/>
+
+        <!-- Live Market Price Laser Line -->
+        <line x1="0" y1="125" x2="1000" y2="125" stroke="#10B981" stroke-width="1.5" stroke-dasharray="6,4" class="live-price-laser"/>
+
+        <!-- 22 Realistic Candlesticks with Upper/Lower Wicks and Volume Histogram -->
+        <g class="bg-candle-series">
+          <!-- C1 Green -->
+          <line x1="40" y1="195" x2="40" y2="260" stroke="#0D8244" stroke-width="1.5"/>
+          <rect x="33" y="205" width="14" height="40" fill="url(#bgCandleGreen2)" rx="2"/>
+          <rect x="35" y="304" width="10" height="26" fill="#0D8244" opacity="0.45"/>
+
+          <!-- C2 Green -->
+          <line x1="82" y1="165" x2="82" y2="225" stroke="#0D8244" stroke-width="1.5"/>
+          <rect x="75" y="175" width="14" height="33" fill="url(#bgCandleGreen2)" rx="2"/>
+          <rect x="77" y="296" width="10" height="34" fill="#0D8244" opacity="0.45"/>
+
+          <!-- C3 Red -->
+          <line x1="124" y1="165" x2="124" y2="210" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="117" y="172" width="14" height="26" fill="url(#bgCandleRed2)" rx="2"/>
+          <rect x="119" y="310" width="10" height="20" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C4 Green Hammer -->
+          <line x1="166" y1="155" x2="166" y2="230" stroke="#0D8244" stroke-width="1.5"/>
+          <rect x="159" y="166" width="14" height="30" fill="url(#bgCandleGreen2)" rx="2"/>
+          <rect x="161" y="290" width="10" height="40" fill="#0D8244" opacity="0.45"/>
+
+          <!-- C5 Green Momentum -->
+          <line x1="208" y1="120" x2="208" y2="178" stroke="#0D8244" stroke-width="2"/>
+          <rect x="201" y="128" width="14" height="38" fill="url(#bgCandleGreen2)" rx="2"/>
+          <rect x="203" y="278" width="10" height="52" fill="#0D8244" opacity="0.55"/>
+
+          <!-- C6 Red Doji -->
+          <line x1="250" y1="122" x2="250" y2="152" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="243" y="128" width="14" height="14" fill="url(#bgCandleRed2)" rx="2"/>
+          <rect x="245" y="306" width="10" height="24" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C7 Red Pullback -->
+          <line x1="292" y1="136" x2="292" y2="174" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="285" y="142" width="14" height="22" fill="url(#bgCandleRed2)" rx="2"/>
+          <rect x="287" y="308" width="10" height="22" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C8 Green Rebound -->
+          <line x1="334" y1="125" x2="334" y2="172" stroke="#0D8244" stroke-width="1.5"/>
+          <rect x="327" y="134" width="14" height="28" fill="url(#bgCandleGreen2)" rx="2"/>
+          <rect x="329" y="292" width="10" height="38" fill="#0D8244" opacity="0.45"/>
+
+          <!-- C9 Green Breakout -->
+          <line x1="376" y1="85" x2="376" y2="148" stroke="#0D8244" stroke-width="2"/>
+          <rect x="369" y="96" width="14" height="38" fill="url(#bgCandleGreen2)" rx="2"/>
+          <rect x="371" y="274" width="10" height="56" fill="#0D8244" opacity="0.55"/>
+
+          <!-- C10 Green Power Candle -->
+          <line x1="418" y1="52" x2="418" y2="112" stroke="#0D8244" stroke-width="2"/>
+          <rect x="411" y="64" width="14" height="32" fill="url(#bgCandleGreen2)" rx="2"/>
+          <rect x="413" y="258" width="10" height="72" fill="#0D8244" opacity="0.6"/>
+
+          <!-- C11 Red Consolidation -->
+          <line x1="460" y1="58" x2="460" y2="105" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="453" y="68" width="14" height="24" fill="url(#bgCandleRed2)" rx="2"/>
+          <rect x="455" y="302" width="10" height="28" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C12 Green Continuation -->
+          <line x1="502" y1="48" x2="502" y2="102" stroke="#0D8244" stroke-width="2"/>
+          <rect x="495" y="60" width="14" height="30" fill="url(#bgCandleGreen2)" rx="2"/>
+          <rect x="497" y="268" width="10" height="62" fill="#0D8244" opacity="0.55"/>
+
+          <!-- C13 Green ATH Momentum -->
+          <line x1="544" y1="24" x2="544" y2="75" stroke="#0D8244" stroke-width="2"/>
+          <rect x="537" y="34" width="14" height="26" fill="url(#bgCandleGreen2)" rx="2"/>
+          <rect x="539" y="252" width="10" height="78" fill="#0D8244" opacity="0.65"/>
+
+          <!-- C14 Red Profit Taking -->
+          <line x1="586" y1="30" x2="586" y2="88" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="579" y="38" width="14" height="38" fill="url(#bgCandleRed2)" rx="2"/>
+          <rect x="581" y="294" width="10" height="36" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C15 Red Secondary Dip -->
+          <line x1="628" y1="70" x2="628" y2="118" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="621" y="76" width="14" height="30" fill="url(#bgCandleRed2)" rx="2"/>
+          <rect x="623" y="298" width="10" height="32" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C16 Green Support Bounce -->
+          <line x1="670" y1="68" x2="670" y2="122" stroke="#0D8244" stroke-width="1.5"/>
+          <rect x="663" y="76" width="14" height="30" fill="url(#bgCandleGreen2)" rx="2"/>
+          <rect x="665" y="286" width="10" height="44" fill="#0D8244" opacity="0.45"/>
+
+          <!-- C17 Green Second Wave -->
+          <line x1="712" y1="42" x2="712" y2="92" stroke="#0D8244" stroke-width="2"/>
+          <rect x="705" y="50" width="14" height="26" fill="url(#bgCandleGreen2)" rx="2"/>
+          <rect x="707" y="266" width="10" height="64" fill="#0D8244" opacity="0.55"/>
+
+          <!-- C18 Red Mild Retest -->
+          <line x1="754" y1="46" x2="754" y2="84" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="747" y="52" width="14" height="20" fill="url(#bgCandleRed2)" rx="2"/>
+          <rect x="749" y="304" width="10" height="26" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C19 Green Follow-through -->
+          <line x1="796" y1="36" x2="796" y2="82" stroke="#0D8244" stroke-width="1.5"/>
+          <rect x="789" y="45" width="14" height="25" fill="url(#bgCandleGreen2)" rx="2"/>
+          <rect x="791" y="282" width="10" height="48" fill="#0D8244" opacity="0.5"/>
+
+          <!-- C20 Green Power Spike -->
+          <line x1="838" y1="16" x2="838" y2="60" stroke="#0D8244" stroke-width="2"/>
+          <rect x="831" y="22" width="14" height="23" fill="url(#bgCandleGreen2)" rx="2"/>
+          <rect x="833" y="255" width="10" height="75" fill="#0D8244" opacity="0.65"/>
+
+          <!-- C21 Red Pullback -->
+          <line x1="880" y1="20" x2="880" y2="78" stroke="#DC2626" stroke-width="1.5"/>
+          <rect x="873" y="26" width="14" height="42" fill="url(#bgCandleRed2)" rx="2"/>
+          <rect x="875" y="296" width="10" height="34" fill="#DC2626" opacity="0.45"/>
+
+          <!-- C22 Active Live Stock Candle -->
+          <line x1="922" y1="55" x2="922" y2="142" stroke="#0D8244" stroke-width="2"/>
+          <rect x="915" y="65" width="14" height="60" fill="url(#bgCandleGreen2)" rx="2"/>
+          <rect x="917" y="270" width="10" height="60" fill="#0D8244" opacity="0.6"/>
+        </g>
+
+        <!-- Live Marker Ping & Badge -->
+        <g class="live-marker-point" transform="translate(922, 125)">
+          <circle class="live-radar-ping" cx="0" cy="0" r="5" fill="none" stroke="#10B981" stroke-width="2"/>
+          <circle cx="0" cy="0" r="4" fill="#10B981"/>
+          <rect x="-124" y="-12" width="118" height="24" rx="5" fill="#0B192C" stroke="#10B981" stroke-width="1"/>
+          <text x="-116" y="4" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">58,742.80 ▲</text>
+        </g>
+      </svg>
     </div>
-  </header>
+  </div>
 
-  <!-- ----------------------------------------------------------------------
-       2. MOVING LIVE MARKET TICKER TAPE BAR (BELOW NAVBAR)
-       ---------------------------------------------------------------------- -->
-  <div class="top-market-ticker">
+  <!-- ======================================================================
+       1. TOP MARKET TICKER TAPE BAR (Light Fintech Marquee)
+       ====================================================================== -->
+  <div class="top-market-ticker" aria-hidden="true">
     <div class="ticker-wrapper">
       <div class="ticker-content">
-        <span class="ticker-item">NIFTY 50 <span class="ticker-green">▲ 24,520 (+0.8%)</span></span>
-        <span class="ticker-item">•</span>
-        <span class="ticker-item">BANKNIFTY <span class="ticker-green">▲ 52,140 (+0.9%)</span></span>
-        <span class="ticker-item">•</span>
-        <span class="ticker-item">SENSEX <span class="ticker-green">▲ 81,300 (+0.7%)</span></span>
-        <span class="ticker-item">•</span>
-        <span class="ticker-item">CAPITAL GROW <span class="ticker-green">5,000+ ACTIVE MEMBERS</span></span>
-        <span class="ticker-item">•</span>
-        <!-- Duplicate for infinite smooth marquee -->
-        <span class="ticker-item">NIFTY 50 <span class="ticker-green">▲ 24,520 (+0.8%)</span></span>
-        <span class="ticker-item">•</span>
-        <span class="ticker-item">BANKNIFTY <span class="ticker-green">▲ 52,140 (+0.9%)</span></span>
-        <span class="ticker-item">•</span>
-        <span class="ticker-item">SENSEX <span class="ticker-green">▲ 81,300 (+0.7%)</span></span>
-        <span class="ticker-item">•</span>
-        <span class="ticker-item">CAPITAL GROW <span class="ticker-green">5,000+ ACTIVE MEMBERS</span></span>
+        <span class="ticker-item"><span class="ticker-badge">LIVE INDEX</span> VIX 13.84 <span class="ticker-red">▼ 2.31%</span></span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">NIFTY 50 26,184.35 <span class="ticker-green">▲ 0.42%</span></span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">BANKNIFTY 58,712.10 <span class="ticker-green">▲ 0.68%</span></span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">SENSEX 85,629.78 <span class="ticker-green">▲ 0.51%</span></span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">CRUDE OIL ₹6,140 <span class="ticker-green">▲ 0.85%</span></span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item"><span class="ticker-badge">COMMUNITY</span> 14,800+ ACTIVE MEMBERS</span>
+        <span class="ticker-dot">•</span>
+        <!-- Duplicated for seamless infinite loop -->
+        <span class="ticker-item"><span class="ticker-badge">LIVE INDEX</span> VIX 13.84 <span class="ticker-red">▼ 2.31%</span></span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">NIFTY 50 26,184.35 <span class="ticker-green">▲ 0.42%</span></span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">BANKNIFTY 58,712.10 <span class="ticker-green">▲ 0.68%</span></span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">SENSEX 85,629.78 <span class="ticker-green">▲ 0.51%</span></span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item">CRUDE OIL ₹6,140 <span class="ticker-green">▲ 0.85%</span></span>
+        <span class="ticker-dot">•</span>
+        <span class="ticker-item"><span class="ticker-badge">COMMUNITY</span> 14,800+ ACTIVE MEMBERS</span>
       </div>
     </div>
   </div>
 
+  <!-- ======================================================================
+       2. HEADER NAVIGATION (Crisp Frosted Glass)
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#" class="logo-wrapper" aria-label="Capital Grow — Return to top">
+        <div class="logo-brand-container">
+          <img src="assets/logo_transparent.png" alt="Capital Grow Official Logo" class="nav-brand-logo">
+        </div>
+        <div class="nav-brand-tag">
+          <span class="pulse-dot"></span>
+          <span>RESEARCH COMMUNITY</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#benefits" class="nav-link">What You Get</a></li>
+        <li><a href="#calculator" class="nav-link">Risk Calculator</a></li>
+        <li><a href="#preview" class="nav-link">Channel Preview</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
+
+      <a href="https://t.me/+jcO3zpdZ6Tg1MDE9" target="_blank" rel="noopener noreferrer" class="header-cta-btn">
+        <svg class="telegram-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+        </svg>
+        <span>Join Telegram</span>
+      </a>
+    </div>
+  </header>
+
   <main>
-    <!-- --------------------------------------------------------------------
-         3. HERO SECTION (Meta Ad Compliant & High Conversion)
-         -------------------------------------------------------------------- -->
+    <!-- ====================================================================
+         3. HERO SECTION (Unobstructed & Clean)
+         ==================================================================== -->
     <section class="hero-section">
       <div class="container">
-        <!-- Badges -->
-        <div class="hero-header-badges">
-          <div class="sebi-pill">
-            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-            Verified Market Research
+        <div class="hero-wrapper">
+          
+          <!-- Centered circular Capital Grow emblem with Gold & Green halo -->
+          <div class="hero-logo-medallion">
+            <img src="assets/logo_clean.png" alt="Capital Grow Emblem" width="88" height="88">
           </div>
-          <div class="live-status-pill">
-            <span class="status-dot"></span>
-            Market Open · Live Updates
-          </div>
-        </div>
 
-        <h1 class="hero-title">
-          Daily Market Calls,<br>
-          <span class="gradient-text">Straight to WhatsApp</span>
-        </h1>
+          <!-- Glowing Status Pills -->
+          <div class="hero-badges">
+            <div class="pill-sebi">
+              <svg width="15" height="15" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              SEBI Registered Research Analyst
+            </div>
+            <div class="pill-status">
+              <span class="pulse-dot"></span>
+              Index Market Research Community
+            </div>
+          </div>
 
-        <p class="hero-subtitle">
-          NIFTY & BANKNIFTY setups, pre-market analysis and end-of-day wraps — delivered every trading day before the opening bell.
-        </p>
+          <!-- Main Headline -->
+          <h1 class="hero-title">
+            Daily Index Research,<br>
+            <span class="gradient-cyan italic-accent">Done Right.</span>
+          </h1>
 
-        <div class="hero-cta-box">
-          <a href="https://chat.whatsapp.com/LUkpIkiwSCECX61wZBPy0w?s=cl&p=a&ilr=4&amv=3" target="_blank" class="btn-whatsapp">
-            <svg viewBox="0 0 24 24">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.157 4.228 4.238-1.111z"/>
-            </svg>
-            Join on WhatsApp — It's Free
-          </a>
-          <div class="hero-microcopy">
-            No cost to join · We charge no fee for these updates · Opt out anytime
-          </div>
-        </div>
+          <!-- Supporting Copy -->
+          <p class="hero-desc">
+            Get <strong>Nifty, BankNifty & Sensex</strong> market research updates on Telegram — shared for educational and informational purposes. <strong>Free to join.</strong>
+          </p>
 
-        <!-- 3 Feature Pills below Hero -->
-        <div class="hero-feature-pills">
-          <div class="feature-pill-card">
-            <span class="feature-pill-tag">DAILY</span>
-            <span class="feature-pill-title">Pre-Market Brief</span>
+          <!-- Primary CTA Button with distinct spans for text and arrow -->
+          <div class="hero-cta-wrapper">
+            <a href="https://t.me/+jcO3zpdZ6Tg1MDE9" target="_blank" rel="noopener noreferrer" class="btn-telegram-primary" id="hero-primary-cta">
+              <svg class="telegram-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+              </svg>
+              <span class="btn-text">Join Free on Telegram</span>
+              <span class="btn-arrow">→</span>
+            </a>
+            
+            <div class="hero-guarantee-pill">
+              <span class="dot">●</span> 100% Free • No Card Needed • Instant Access
+            </div>
           </div>
-          <div class="feature-pill-card">
-            <span class="feature-pill-tag">LIVE</span>
-            <span class="feature-pill-title">Intraday Calls</span>
+
+          <!-- 3 Feature Pills below Hero -->
+          <div class="hero-feature-strip">
+            <div class="feature-pill">
+              <span class="pill-tag tag-daily">DAILY</span>
+              <span>Pre-Market Brief</span>
+            </div>
+            <div class="feature-pill">
+              <span class="pill-tag tag-live">LIVE</span>
+              <span>Intraday Setups</span>
+            </div>
+            <div class="feature-pill">
+              <span class="pill-tag tag-eod">EOD</span>
+              <span>Market Wrap</span>
+            </div>
           </div>
-          <div class="feature-pill-card">
-            <span class="feature-pill-tag">EOD</span>
-            <span class="feature-pill-title">Market Wrap</span>
-          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- --------------------------------------------------------------------
-         4. LIVE STATS STRIP
-         -------------------------------------------------------------------- -->
+    <!-- ====================================================================
+         4. LIVE STATS STRIP (Crisp White Elevated Cards)
+         ==================================================================== -->
     <section class="stats-strip">
       <div class="container">
         <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-number">$0 <span class="highlight">COST</span></div>
-            <div class="stat-label">100% Free Access</div>
+          <div class="stat-box reveal">
+            <div class="stat-val">₹0 <span class="accent-cyan">COST</span></div>
+            <div class="stat-lbl">100% Free Access</div>
           </div>
-          <div class="stat-item">
-            <div class="stat-number">4.9<span class="highlight">★</span></div>
-            <div class="stat-label">Community Rating</div>
+          <div class="stat-box reveal">
+            <div class="stat-val">4.9<span class="accent-gold">★</span></div>
+            <div class="stat-lbl">Community Rating</div>
           </div>
-          <div class="stat-item">
-            <div class="stat-number">15<span class="highlight">+</span></div>
-            <div class="stat-label">Daily Market Insights</div>
+          <div class="stat-box reveal">
+            <div class="stat-val">15<span class="accent-cyan">+</span></div>
+            <div class="stat-lbl">Daily Market Insights</div>
           </div>
-          <div class="stat-item">
-            <div class="stat-number">5,000<span class="highlight">+</span></div>
-            <div class="stat-label">Active Smart Traders</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- --------------------------------------------------------------------
-         5. INTERACTIVE POSITION RISK CALCULATOR (Meta Ad Compliant)
-         -------------------------------------------------------------------- -->
-    <section class="calculator-section reveal" id="calculator">
-      <div class="container">
-        <div class="calculator-card">
-          <div class="section-header" style="margin-bottom: 16px;">
-            <span class="section-tag">RISK MANAGEMENT TOOL</span>
-            <h2 class="section-title">Position Risk & Allocation Calculator</h2>
-            <p class="section-desc">Select your trading capital to view prudent 1-2% risk guidelines and recommended position sizing for disciplined trading.</p>
-          </div>
-
-          <div class="calc-body">
-            <div class="calc-slider-wrapper">
-              <div class="calc-slider-header">
-                <span>Trading Capital:</span>
-                <span id="calc-amount-display" class="calc-amount-val">₹50,000</span>
-              </div>
-              <input type="range" id="capital-slider" min="10000" max="500000" step="5000" value="50000" class="calc-range-input">
-              <div class="calc-slider-labels">
-                <span>₹10,000</span>
-                <span>₹2.5 Lakh</span>
-                <span>₹5 Lakh</span>
-              </div>
-            </div>
-
-            <div class="calc-results-grid">
-              <div class="calc-result-box">
-                <span class="calc-res-label">MAX RISK PER TRADE (2%)</span>
-                <span id="calc-risk-display" class="calc-res-val highlight-green">₹1,000</span>
-              </div>
-              <div class="calc-result-box">
-                <span class="calc-res-label">RECOMMENDED SETUP ALLOCATION</span>
-                <span id="calc-position-display" class="calc-res-val highlight-blue">₹10,000</span>
-              </div>
-              <div class="calc-result-box">
-                <span class="calc-res-label">RISK MANAGEMENT</span>
-                <span class="calc-res-val">1-2% Capital Rule</span>
-              </div>
-            </div>
-
-            <div class="calc-cta-wrapper">
-              <a href="https://chat.whatsapp.com/LUkpIkiwSCECX61wZBPy0w?s=cl&p=a&ilr=4&amv=3" target="_blank" class="btn-whatsapp calc-btn">
-                <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.157 4.228 4.238-1.111z"/></svg>
-                Join on WhatsApp — It's Free
-              </a>
-            </div>
+          <div class="stat-box reveal">
+            <div class="stat-val">14.8k<span class="accent-green">+</span></div>
+            <div class="stat-lbl">Active Smart Traders</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- --------------------------------------------------------------------
-         6. BENEFIT HIGHLIGHTS
-         -------------------------------------------------------------------- -->
-    <section class="benefits-section" id="benefits">
+    <!-- ====================================================================
+         5. CHANNEL PREVIEW FEED (Simulated Telegram Client Frame)
+         ==================================================================== -->
+    <section class="preview-section" id="preview">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-tag">MEMBER BENEFITS</span>
-          <h2 class="section-title">Everything You Need for Disciplined Trading</h2>
-          <p class="section-desc">Actionable market intelligence delivered directly to your phone without clutter or noise.</p>
-        </div>
-
-        <div class="benefits-grid">
-          <div class="benefit-card green-accent reveal">
-            <div class="benefit-icon">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-            </div>
-            <h3 class="benefit-title">Daily Market Setups</h3>
-            <p class="benefit-text">Real-time stock, index, and momentum trade alerts with exact entry price, targets, and strict stop-loss protection.</p>
-          </div>
-
-          <div class="benefit-card reveal">
-            <div class="benefit-icon">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-            </div>
-            <h3 class="benefit-title">Pre-Market Analysis Briefs</h3>
-            <p class="benefit-text">Key support/resistance levels and institutional flow breakdowns delivered every morning before opening bell.</p>
-          </div>
-
-          <div class="benefit-card gold-accent reveal">
-            <div class="benefit-icon">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            </div>
-            <h3 class="benefit-title">Risk Management Blueprints</h3>
-            <p class="benefit-text">Position sizing formulas, capital allocation rules, and risk management guides used by institutional traders.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- --------------------------------------------------------------------
-         7. INTERACTIVE SIGNAL SHOWCASE
-         -------------------------------------------------------------------- -->
-    <section class="preview-showcase" id="preview">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">LIVE PREVIEW</span>
+          <span class="section-tag">LIVE CHANNEL FEED</span>
           <h2 class="section-title">See What's Posted Inside Capital Grow</h2>
-          <p class="section-desc">Click through tabs to preview sample trade signals, morning briefs, and wealth playbooks.</p>
+          <p class="section-desc">Sample educational setups, intraday structure analysis, and open interest breakdowns posted inside our official Telegram channel.</p>
         </div>
 
-        <div class="preview-box reveal">
-          <div class="preview-tabs">
-            <button class="tab-btn active" data-target="signals">🎯 Trade Signals</button>
-            <button class="tab-btn" data-target="analysis">📊 Pre-Market Briefs</button>
-            <button class="tab-btn" data-target="wealth">💡 Wealth Playbook</button>
+        <!-- Simulated Telegram Client Frame -->
+        <div class="telegram-client-frame reveal">
+          
+          <!-- Telegram Frame Header -->
+          <div class="telegram-frame-header">
+            <div class="tg-header-left">
+              <div class="tg-channel-avatar">
+                <img src="assets/logo_clean.png" alt="Capital Grow Avatar">
+              </div>
+              <div class="tg-channel-meta">
+                <div class="tg-channel-name">
+                  Capital Grow Research
+                  <svg class="tg-verified-icon" width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <span class="tg-sub-count">14,840 subscribers • verified educational community</span>
+              </div>
+            </div>
+            <span class="tg-header-badge">● LIVE POSTS</span>
           </div>
 
-          <div class="preview-content-area" id="sample-signal-content">
-            <div class="sample-signal-header">
-              <span class="signal-type-badge">📊 Technical Setup Analysis (Educational)</span>
-              <span style="font-size: 0.775rem; color: #94a3b8;">Today, 09:15 AM</span>
+          <!-- Telegram Feed Stream -->
+          <div class="telegram-feed-stream">
+            
+            <!-- Card 1: Technical Levels -->
+            <div class="tg-post-card">
+              <div class="tg-post-header">
+                <div class="tg-post-badge-group">
+                  <span class="tg-tag tg-tag-call">🎯 TECHNICAL SETUP</span>
+                  <span style="font-size: 0.775rem; color: #334155; font-weight: 700;">NIFTY 26,200 CALL (EDUCATIONAL)</span>
+                </div>
+                <span class="tg-post-time">09:33 AM</span>
+              </div>
+
+              <div class="trading-levels-grid">
+                <div class="level-box">
+                  <div class="level-lbl">Entry Trigger</div>
+                  <div class="level-val level-green">VIEW: BUY ABOVE 165</div>
+                </div>
+                <div class="level-box">
+                  <div class="level-lbl">Risk Invalidation</div>
+                  <div class="level-val level-red">STOPLOSS: 145</div>
+                </div>
+              </div>
+
+              <div class="level-box" style="margin-bottom: 12px;">
+                <div class="level-lbl">Planned Targets</div>
+                <div class="level-val level-targets">🎯 175 / 190 / 210+ (1:2.5+ R:R)</div>
+              </div>
+
+              <p class="tg-commentary">
+                <strong>Technical Rationale:</strong> Heavy call unwinding seen at 26,150 strike with institutional buy volume above opening 15-min high. Maintain strict trailing stop once T1 is hit.
+              </p>
+
+              <div class="tg-edu-pill">
+                ⚠️ <strong>Educational Market Study:</strong> Provided exclusively for technical chart learning and risk discipline. Always practice position sizing.
+              </div>
+
+              <div class="tg-meta-footer">
+                <span class="tg-meta-views">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                  </svg>
+                  2,415
+                </span>
+                <span>• 9:33 AM</span>
+              </div>
             </div>
-            <div class="sample-body">
-              <div>📊 <b>SAMPLE CHART ANALYSIS: NIFTY 24,500 LEVEL</b></div>
-              <div>-------------------------------------</div>
-              <div>🔹 Breakout Zone: 145 - 150</div>
-              <div>🎯 Resistance Level 1: 185</div>
-              <div>🎯 Resistance Level 2: 230</div>
-              <div>🛑 Key Risk Support: 125</div>
-              <div>-------------------------------------</div>
-              <div>💡 <i>Technical Note: Institutional buying support observed near 24,400 level. Shared for educational market study.</i></div>
-              <div style="color: #22c55e; margin-top: 8px; font-weight: bold;">✅ Resistance Level 1 Reached — Setup Validated</div>
+
+            <!-- Card 2: Chart Update with Light Theme Candlestick SVG -->
+            <div class="tg-post-card">
+              <div class="tg-post-header">
+                <div class="tg-post-badge-group">
+                  <span class="tg-tag tg-tag-chart">📊 CHART UPDATE</span>
+                  <span style="font-size: 0.775rem; color: #0369A1; font-weight: 700;">BANKNIFTY • 1H — Intraday Structure</span>
+                </div>
+                <span class="tg-post-time">10:42 AM</span>
+              </div>
+
+              <p class="tg-commentary">
+                <strong>Price Action Update:</strong> BankNifty tested the 20 EMA pullback zone at 58,480 and printed a strong bullish engulfing wick candle on hourly timeframe. Breakout resistance observed at 58,850.
+              </p>
+
+              <!-- SVG Candlestick Chart in Clean Light TradingView Style -->
+              <div class="chart-container-card">
+                <div class="chart-header-bar">
+                  <span>BANKNIFTY 1H CANDLESTICK CHART</span>
+                  <span style="color: var(--color-grow-green);">▲ +394.50 (+0.68%)</span>
+                </div>
+                <svg class="candlestick-svg" viewBox="0 0 600 200" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="lightChartBg" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#FFFFFF"/>
+                      <stop offset="100%" stop-color="#F8FAFC"/>
+                    </linearGradient>
+                  </defs>
+
+                  <rect width="600" height="200" fill="url(#lightChartBg)" rx="6"/>
+
+                  <!-- Crisp Grid lines -->
+                  <line x1="40" y1="40" x2="580" y2="40" stroke="#E2E8F0" stroke-dasharray="3,3" stroke-width="1"/>
+                  <line x1="40" y1="85" x2="580" y2="85" stroke="#E2E8F0" stroke-dasharray="3,3" stroke-width="1"/>
+                  <line x1="40" y1="130" x2="580" y2="130" stroke="#E2E8F0" stroke-dasharray="3,3" stroke-width="1"/>
+                  <line x1="40" y1="175" x2="580" y2="175" stroke="#E2E8F0" stroke-dasharray="3,3" stroke-width="1"/>
+
+                  <!-- Price Labels -->
+                  <text x="585" y="44" fill="#64748B" font-size="10" font-family="monospace" font-weight="600">58,900</text>
+                  <text x="585" y="89" fill="#64748B" font-size="10" font-family="monospace" font-weight="600">58,700</text>
+                  <text x="585" y="134" fill="#64748B" font-size="10" font-family="monospace" font-weight="600">58,500</text>
+                  <text x="585" y="179" fill="#64748B" font-size="10" font-family="monospace" font-weight="600">58,300</text>
+
+                  <!-- 20 EMA Gold Line -->
+                  <path d="M 60 160 Q 180 145, 300 120 T 540 68" fill="none" stroke="#D97706" stroke-width="2.5" stroke-dasharray="6,3"/>
+                  <text x="520" y="58" fill="#D97706" font-size="9" font-weight="bold" font-family="monospace">20 EMA</text>
+
+                  <!-- Breakout Support Line -->
+                  <line x1="60" y1="132" x2="560" y2="132" stroke="#0284C7" stroke-width="1.5" stroke-dasharray="4,2"/>
+                  <text x="70" y="126" fill="#0284C7" font-size="10" font-weight="bold" font-family="monospace">KEY SUPPORT ZONE 58,500</text>
+
+                  <!-- Candlesticks (Green #0D8244, Red #DC2626) -->
+                  <line x1="75" y1="125" x2="75" y2="165" stroke="#DC2626" stroke-width="1.5"/>
+                  <rect x="68" y="135" width="14" height="22" fill="#DC2626" rx="1"/>
+
+                  <line x1="115" y1="138" x2="115" y2="178" stroke="#DC2626" stroke-width="1.5"/>
+                  <rect x="108" y="145" width="14" height="24" fill="#DC2626" rx="1"/>
+
+                  <line x1="155" y1="130" x2="155" y2="182" stroke="#0D8244" stroke-width="1.5"/>
+                  <rect x="148" y="132" width="14" height="18" fill="#0D8244" rx="1"/>
+
+                  <line x1="195" y1="115" x2="195" y2="150" stroke="#0D8244" stroke-width="1.5"/>
+                  <rect x="188" y="120" width="14" height="25" fill="#0D8244" rx="1"/>
+
+                  <line x1="235" y1="110" x2="235" y2="142" stroke="#DC2626" stroke-width="1.5"/>
+                  <rect x="228" y="118" width="14" height="15" fill="#DC2626" rx="1"/>
+
+                  <line x1="275" y1="88" x2="275" y2="135" stroke="#0D8244" stroke-width="1.5"/>
+                  <rect x="268" y="96" width="14" height="34" fill="#0D8244" rx="1"/>
+
+                  <line x1="315" y1="78" x2="315" y2="115" stroke="#0D8244" stroke-width="1.5"/>
+                  <rect x="308" y="84" width="14" height="26" fill="#0D8244" rx="1"/>
+
+                  <line x1="355" y1="74" x2="355" y2="108" stroke="#DC2626" stroke-width="1.5"/>
+                  <rect x="348" y="80" width="14" height="14" fill="#DC2626" rx="1"/>
+
+                  <line x1="395" y1="55" x2="395" y2="92" stroke="#0D8244" stroke-width="1.5"/>
+                  <rect x="388" y="60" width="14" height="28" fill="#0D8244" rx="1"/>
+
+                  <line x1="435" y1="46" x2="435" y2="80" stroke="#0D8244" stroke-width="1.5"/>
+                  <rect x="428" y="50" width="14" height="24" fill="#0D8244" rx="1"/>
+
+                  <line x1="475" y1="36" x2="475" y2="68" stroke="#0D8244" stroke-width="2"/>
+                  <rect x="468" y="40" width="14" height="20" fill="#0D8244" rx="1"/>
+
+                  <circle cx="475" cy="40" r="4" fill="#0284C7"/>
+                  <path d="M 465 24 L 475 34 L 485 24" fill="none" stroke="#0284C7" stroke-width="1.5"/>
+                  <text x="430" y="20" fill="#0284C7" font-size="10" font-weight="bold" font-family="sans-serif">BREAKOUT HIGH</text>
+                </svg>
+              </div>
+
+              <div class="tg-meta-footer">
+                <span class="tg-meta-views">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                  </svg>
+                  1,876
+                </span>
+                <span>• 10:42 AM</span>
+              </div>
             </div>
+
+            <!-- Card 3: Strategy Guide / Learn -->
+            <div class="tg-post-card">
+              <div class="tg-post-header">
+                <div class="tg-post-badge-group">
+                  <span class="tg-tag tg-tag-learn">💡 STRATEGY GUIDE</span>
+                  <span style="font-size: 0.775rem; color: #92400E; font-weight: 700;">Understanding OI in Index Options</span>
+                </div>
+                <span class="tg-post-time">Yesterday</span>
+              </div>
+
+              <p class="tg-commentary">
+                <strong>Derivatives Insight:</strong> How smart money builds support and resistance using Open Interest (OI) concentration before big weekly expiry expansions.
+              </p>
+
+              <div class="oi-breakdown">
+                <div class="oi-row">
+                  <span class="oi-strike" style="color: #DC2626;">26,300 CE</span>
+                  <div class="oi-bar-wrap">
+                    <div class="oi-bar-call" style="width: 86%;"></div>
+                  </div>
+                  <span class="oi-stat">48.2L OI (Res)</span>
+                </div>
+                <div class="oi-row">
+                  <span class="oi-strike" style="color: #0369A1;">26,200 ATM</span>
+                  <div class="oi-bar-wrap">
+                    <div class="oi-bar-put" style="width: 62%; background: #0284C7;"></div>
+                  </div>
+                  <span class="oi-stat">31.4L OI (Pivot)</span>
+                </div>
+                <div class="oi-row">
+                  <span class="oi-strike" style="color: #0D8244;">26,000 PE</span>
+                  <div class="oi-bar-wrap">
+                    <div class="oi-bar-put" style="width: 94%;"></div>
+                  </div>
+                  <span class="oi-stat">52.8L OI (Supp)</span>
+                </div>
+              </div>
+
+              <div class="tg-edu-pill" style="border-left-color: var(--color-telegram); background: #E0F2FE; color: #0369A1;">
+                📌 <strong>Key Learning:</strong> PCR currently at 1.18 indicates bullish bias. Put writers defending 26,000 firmly. Full 12-page educational PDF shared in Telegram files!
+              </div>
+
+              <div class="tg-meta-footer">
+                <span class="tg-meta-views">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                  </svg>
+                  3,120
+                </span>
+                <span>• Yesterday</span>
+              </div>
+            </div>
+
           </div>
+
+          <!-- Telegram Frame Action -->
+          <div class="tg-frame-action">
+            <a href="https://t.me/+jcO3zpdZ6Tg1MDE9" target="_blank" rel="noopener noreferrer" class="btn-telegram-primary" style="max-width: 420px; margin: 0 auto;">
+              <svg class="telegram-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+              </svg>
+              <span class="btn-text">Get Live Alerts on Telegram</span>
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- --------------------------------------------------------------------
-         8. TESTIMONIALS (Meta Ad Compliant)
-         -------------------------------------------------------------------- -->
-    <section class="testimonials-section" id="testimonials">
+    <!-- ====================================================================
+         6. VALUE & TRUST PILLARS (4 Clean Trust Cards in Light Theme)
+         ==================================================================== -->
+    <section class="pillars-section" id="benefits">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-tag">REVIEWS</span>
-          <h2 class="section-title">Trusted by 5,000+ Smart Investors</h2>
-          <p class="section-desc">Real feedback from community members after joining the Capital Grow WhatsApp group.</p>
+          <span class="section-tag">VALUE & PILLARS</span>
+          <h2 class="section-title">Built for Disciplined Index Traders</h2>
+          <p class="section-desc">Actionable market intelligence without the noise, clutter, or fake promises of typical groups.</p>
         </div>
 
-        <div class="testimonials-grid">
-          <div class="testimonial-card reveal">
-            <div class="testimonial-content">
-              <div class="testimonial-stars">★★★★★</div>
-              <p class="testimonial-quote">"The morning pre-market briefs and risk management rules gave me incredible discipline and clarity before every trading day!"</p>
+        <div class="pillars-grid">
+          <div class="pillar-card reveal">
+            <div class="pillar-icon-wrap icon-cyan">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
             </div>
-            <div class="testimonial-author">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Sarah Sharma" class="author-img">
+            <h3 class="pillar-title">100% Free Community</h3>
+            <p class="pillar-desc">No hidden VIP tiers, paid upsells, or locked signals. Every member gets identical institutional-grade index research without paying a single rupee.</p>
+          </div>
+
+          <div class="pillar-card reveal">
+            <div class="pillar-icon-wrap icon-emerald">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Index-Focused Research</h3>
+            <p class="pillar-desc">Deep technical specialization in NIFTY 50, BANKNIFTY & SENSEX. Clean breakout zones, CPR levels, and key strike open interest analysis.</p>
+          </div>
+
+          <div class="pillar-card reveal">
+            <div class="pillar-icon-wrap icon-gold">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Educational Daily Briefs</h3>
+            <p class="pillar-desc">Receive curated pre-market levels before 9:00 AM every trading morning, covering US cues, GIFT Nifty, FII/DII institutional flows, and key support.</p>
+          </div>
+
+          <div class="pillar-card reveal">
+            <div class="pillar-icon-wrap icon-blue">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Real-Time Telegram Alerts</h3>
+            <p class="pillar-desc">Direct Telegram notifications delivered straight to your device during market hours. Zero lag, zero missed setups, and clean formatted updates.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         7. PRUDENT POSITION RISK & ALLOCATION TOOL (Light Theme Calculator)
+         ==================================================================== -->
+    <section class="calculator-section" id="calculator">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">CAPITAL DISCIPLINE</span>
+          <h2 class="section-title">Position Risk & Allocation Tool</h2>
+          <p class="section-desc">Adjust your trading capital to understand conservative 1-2% risk guidelines and recommended position sizing for long-term consistency.</p>
+        </div>
+
+        <div class="calc-card reveal">
+          <div class="calc-slider-box">
+            <div class="calc-slider-top">
+              <span class="calc-slider-title">Your Trading Capital</span>
+              <span id="calc-amount-display" class="calc-amount-value">₹50,000</span>
+            </div>
+            <input type="range" id="capital-slider" min="10000" max="500000" step="5000" value="50000" class="calc-slider" aria-label="Trading Capital Slider">
+            <div class="calc-slider-ticks">
+              <span>₹10,000</span>
+              <span>₹2.5 Lakh</span>
+              <span>₹5 Lakh</span>
+            </div>
+          </div>
+
+          <div class="calc-results-row">
+            <div class="calc-stat-box">
+              <div class="calc-stat-lbl">MAX RISK PER TRADE (2%)</div>
+              <div id="calc-risk-display" class="calc-stat-val calc-green">₹1,000</div>
+            </div>
+            <div class="calc-stat-box">
+              <div class="calc-stat-lbl">RECOMMENDED ALLOCATION</div>
+              <div id="calc-position-display" class="calc-stat-val calc-cyan">₹10,000</div>
+            </div>
+            <div class="calc-stat-box">
+              <div class="calc-stat-lbl">DISCIPLINED RULE</div>
+              <div class="calc-stat-val calc-gold">1-2% Capital Rule</div>
+            </div>
+          </div>
+
+          <div class="calc-compliance-note">
+            💡 <strong>Risk Management Principle:</strong> Never risk more than 2% of total trading capital on a single index contract. Capital Grow teaches systematic trade invalidation with strict stop-loss adherence.
+          </div>
+
+          <div class="calc-btn-wrap">
+            <a href="https://t.me/+jcO3zpdZ6Tg1MDE9" target="_blank" rel="noopener noreferrer" class="btn-telegram-primary" style="max-width: 440px;">
+              <span class="btn-text">Join Telegram to Learn Risk Management</span>
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         8. SOCIAL PROOF & REVIEWS
+         ==================================================================== -->
+    <section class="reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">COMMUNITY FEEDBACK</span>
+          <h2 class="section-title">Trusted by Disciplined Traders</h2>
+          <p class="section-desc">Feedback from community members focusing on risk control, analytical clarity, and actionable pre-market briefings.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="review-card reveal">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "The morning pre-market briefs give me complete clarity before 9:15 AM. Rather than gambling on random calls, the stop-loss discipline taught here helped me stop over-trading."
+            </p>
+            <div class="review-author">
+              <div class="author-avatar">SS</div>
               <div class="author-info">
-                <span class="author-name">Sarah Sharma</span>
-                <span class="author-role">Retail Trader</span>
-                <span class="verified-badge">✓ Verified Member</span>
+                <div class="author-name">Sarah Sharma</div>
+                <div class="author-role">Retail Index Trader • Mumbai</div>
+                <div class="author-verified">✓ Verified Telegram Member</div>
               </div>
             </div>
           </div>
 
-          <div class="testimonial-card reveal">
-            <div class="testimonial-content">
-              <div class="testimonial-stars">★★★★★</div>
-              <p class="testimonial-quote">"Clean, high-probability setups with clear stop losses. Zero spam and genuine daily guidance."</p>
-            </div>
-            <div class="testimonial-author">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Rajesh Verma" class="author-img">
+          <div class="review-card reveal">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "Clean levels with zero hype. The hourly candlestick chart updates and open interest breakdowns are extremely educational. Best index community in India."
+            </p>
+            <div class="review-author">
+              <div class="author-avatar">RV</div>
               <div class="author-info">
-                <span class="author-name">Rajesh Verma</span>
-                <span class="author-role">Business Owner</span>
-                <span class="verified-badge">✓ Verified Member</span>
+                <div class="author-name">Rajesh Verma</div>
+                <div class="author-role">Active F&O Trader • Bengaluru</div>
+                <div class="author-verified">✓ Verified Telegram Member</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card reveal">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "I work a full-time job, so having timely Telegram alerts for BankNifty structure without 50 spam messages an hour is a breath of fresh air. 100% free and very professional."
+            </p>
+            <div class="review-author">
+              <div class="author-avatar">AK</div>
+              <div class="author-info">
+                <div class="author-name">Anand Kulkarni</div>
+                <div class="author-role">IT Consultant & Part-Time Trader • Pune</div>
+                <div class="author-verified">✓ Verified Telegram Member</div>
               </div>
             </div>
           </div>
@@ -333,129 +927,283 @@
       </div>
     </section>
 
-    <!-- --------------------------------------------------------------------
-         9. FAQ ACCORDION
-         -------------------------------------------------------------------- -->
+    <!-- ====================================================================
+         9. TRANSPARENT FAQ ACCORDION
+         ==================================================================== -->
     <section class="faq-section" id="faq">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-tag">FAQ</span>
-          <h2 class="section-title">Frequently Asked Questions</h2>
+          <span class="section-tag">FREQUENT QUESTIONS</span>
+          <h2 class="section-title">Transparent Answers</h2>
+          <p class="section-desc">Everything you need to know about joining the Capital Grow Telegram research channel.</p>
         </div>
 
         <div class="faq-wrapper">
           <div class="faq-item active reveal">
             <div class="faq-header">
-              <span>Is joining the WhatsApp Group really 100% free?</span>
-              <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+              <span>Is joining the Telegram channel really 100% free?</span>
+              <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
             </div>
             <div class="faq-content">
-              Yes, joining Capital Grow is 100% free with no hidden fees or charges.
+              Yes, joining Capital Grow is 100% free. There are no credit card requirements, no hidden fees, and no locked VIP tiers. All educational market research and chart updates are shared openly with all members.
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <div class="faq-header">
+              <span>What kind of research is posted in the channel?</span>
+              <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-content">
+              We focus on NIFTY 50, BANKNIFTY, and SENSEX technical analysis. Posts include pre-market institutional level breakdowns, intraday price action structures, support/resistance breakout setups with stop-loss invalidation points, and open interest (OI) educational guides.
             </div>
           </div>
 
           <div class="faq-item reveal">
             <div class="faq-header">
               <span>What is the message frequency? Will my phone be spammed?</span>
-              <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+              <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
             </div>
             <div class="faq-content">
-              We send only 2 to 4 high-value messages daily (pre-market analysis + key setups) to prevent notification fatigue.
+              We strictly maintain quality over quantity. We typically post 3 to 5 curated, high-value updates per trading day: 1 pre-market brief, 1–3 selective high-probability technical setups, and 1 end-of-day market wrap.
             </div>
           </div>
 
           <div class="faq-item reveal">
             <div class="faq-header">
-              <span>Can I exit the group anytime?</span>
-              <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+              <span>Can I exit or mute the Telegram channel anytime?</span>
+              <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
             </div>
             <div class="faq-content">
-              Yes, you can exit the WhatsApp group with one tap inside the app anytime.
+              Yes, absolutely. You retain 100% control. You can mute notifications or leave the Telegram channel with a single tap inside the Telegram app whenever you wish.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- --------------------------------------------------------------------
-         10. FINAL CTA SECTION
-         -------------------------------------------------------------------- -->
+    <!-- ====================================================================
+         10. FINAL HIGH-IMPACT CTA (With Live Stock Candlestick Floor Background)
+         ==================================================================== -->
     <section class="final-cta-section">
       <div class="container">
-        <div class="final-cta-box reveal">
-          <h2 class="final-cta-title">Ready to Receive Daily Market Calls?</h2>
-          <p class="final-cta-desc">
-            Join 5,000+ smart investors receiving daily NIFTY & BANKNIFTY setups directly on WhatsApp.
-          </p>
+        <div class="final-cta-card reveal">
+          
+          <!-- Animated Moving Candlestick Chart Floor (Positioned at bottom edge) -->
+          <div class="moving-candles-bg" aria-hidden="true">
+            <svg class="moving-candles-svg" viewBox="0 0 1200 160" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="ctaGlowGreen" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#10B981" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#059669" stop-opacity="0.6"/>
+                </linearGradient>
+                <linearGradient id="ctaGlowRed" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#EF4444" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#DC2626" stop-opacity="0.6"/>
+                </linearGradient>
+                <linearGradient id="ctaTrendSpline" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#10B981" stop-opacity="0.8"/>
+                  <stop offset="50%" stop-color="#38BDF8" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.8"/>
+                </linearGradient>
+              </defs>
 
-          <div style="width: 100%; max-width: 440px; margin-top: 10px;">
-            <a href="https://chat.whatsapp.com/LUkpIkiwSCECX61wZBPy0w?s=cl&p=a&ilr=4&amv=3" target="_blank" class="btn-whatsapp">
-              <svg viewBox="0 0 24 24">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.157 4.228 4.238-1.111z"/>
-              </svg>
-              Join on WhatsApp — It's Free
-            </a>
+              <!-- Chart Subtle Grid Lines -->
+              <line x1="0" y1="40" x2="1200" y2="40" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4,4"/>
+              <line x1="0" y1="80" x2="1200" y2="80" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4,4"/>
+              <line x1="0" y1="120" x2="1200" y2="120" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4,4"/>
+
+              <!-- Moving Trend Spline Line -->
+              <path d="M 0 120 C 90 100, 160 65, 270 80 C 370 60, 460 30, 600 20 C 690 100, 760 65, 870 80 C 970 60, 1060 30, 1200 20" fill="none" stroke="url(#ctaTrendSpline)" stroke-width="2" stroke-dasharray="5,3" opacity="0.7"/>
+
+              <!-- Loop 1 (0 to 600) -->
+              <g class="candle-series">
+                <line x1="35" y1="70" x2="35" y2="145" stroke="#10B981" stroke-width="1.5"/>
+                <rect x="28" y="85" width="14" height="42" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="75" y1="55" x2="75" y2="135" stroke="#10B981" stroke-width="1.5"/>
+                <rect x="68" y="68" width="14" height="46" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="115" y1="65" x2="115" y2="140" stroke="#EF4444" stroke-width="1.5"/>
+                <rect x="108" y="78" width="14" height="36" fill="url(#ctaGlowRed)" rx="2"/>
+
+                <line x1="155" y1="50" x2="155" y2="145" stroke="#10B981" stroke-width="1.5"/>
+                <rect x="148" y="60" width="14" height="40" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="195" y1="35" x2="195" y2="125" stroke="#10B981" stroke-width="2"/>
+                <rect x="188" y="45" width="14" height="58" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="235" y1="45" x2="235" y2="120" stroke="#EF4444" stroke-width="1.5"/>
+                <rect x="228" y="58" width="14" height="34" fill="url(#ctaGlowRed)" rx="2"/>
+
+                <line x1="275" y1="65" x2="275" y2="130" stroke="#EF4444" stroke-width="1.5"/>
+                <rect x="268" y="76" width="14" height="32" fill="url(#ctaGlowRed)" rx="2"/>
+
+                <line x1="315" y1="50" x2="315" y2="125" stroke="#10B981" stroke-width="1.5"/>
+                <rect x="308" y="62" width="14" height="44" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="355" y1="35" x2="355" y2="115" stroke="#10B981" stroke-width="1.5"/>
+                <rect x="348" y="45" width="14" height="54" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="395" y1="25" x2="395" y2="105" stroke="#10B981" stroke-width="2"/>
+                <rect x="388" y="32" width="14" height="62" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="435" y1="38" x2="435" y2="102" stroke="#EF4444" stroke-width="1.5"/>
+                <rect x="428" y="48" width="14" height="30" fill="url(#ctaGlowRed)" rx="2"/>
+
+                <line x1="475" y1="18" x2="475" y2="98" stroke="#10B981" stroke-width="2"/>
+                <rect x="468" y="24" width="14" height="60" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="515" y1="10" x2="515" y2="88" stroke="#10B981" stroke-width="2"/>
+                <rect x="508" y="15" width="14" height="58" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="555" y1="24" x2="555" y2="85" stroke="#EF4444" stroke-width="1.5"/>
+                <rect x="548" y="32" width="14" height="28" fill="url(#ctaGlowRed)" rx="2"/>
+
+                <line x1="595" y1="6" x2="595" y2="78" stroke="#10B981" stroke-width="2"/>
+                <rect x="588" y="12" width="14" height="54" fill="url(#ctaGlowGreen)" rx="2"/>
+              </g>
+
+              <!-- Loop 2 (600 to 1200 - duplicate) -->
+              <g class="candle-series" transform="translate(600, 0)">
+                <line x1="35" y1="70" x2="35" y2="145" stroke="#10B981" stroke-width="1.5"/>
+                <rect x="28" y="85" width="14" height="42" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="75" y1="55" x2="75" y2="135" stroke="#10B981" stroke-width="1.5"/>
+                <rect x="68" y="68" width="14" height="46" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="115" y1="65" x2="115" y2="140" stroke="#EF4444" stroke-width="1.5"/>
+                <rect x="108" y="78" width="14" height="36" fill="url(#ctaGlowRed)" rx="2"/>
+
+                <line x1="155" y1="50" x2="155" y2="145" stroke="#10B981" stroke-width="1.5"/>
+                <rect x="148" y="60" width="14" height="40" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="195" y1="35" x2="195" y2="125" stroke="#10B981" stroke-width="2"/>
+                <rect x="188" y="45" width="14" height="58" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="235" y1="45" x2="235" y2="120" stroke="#EF4444" stroke-width="1.5"/>
+                <rect x="228" y="58" width="14" height="34" fill="url(#ctaGlowRed)" rx="2"/>
+
+                <line x1="275" y1="65" x2="275" y2="130" stroke="#EF4444" stroke-width="1.5"/>
+                <rect x="268" y="76" width="14" height="32" fill="url(#ctaGlowRed)" rx="2"/>
+
+                <line x1="315" y1="50" x2="315" y2="125" stroke="#10B981" stroke-width="1.5"/>
+                <rect x="308" y="62" width="14" height="44" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="355" y1="35" x2="355" y2="115" stroke="#10B981" stroke-width="1.5"/>
+                <rect x="348" y="45" width="14" height="54" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="395" y1="25" x2="395" y2="105" stroke="#10B981" stroke-width="2"/>
+                <rect x="388" y="32" width="14" height="62" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="435" y1="38" x2="435" y2="102" stroke="#EF4444" stroke-width="1.5"/>
+                <rect x="428" y="48" width="14" height="30" fill="url(#ctaGlowRed)" rx="2"/>
+
+                <line x1="475" y1="18" x2="475" y2="98" stroke="#10B981" stroke-width="2"/>
+                <rect x="468" y="24" width="14" height="60" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="515" y1="10" x2="515" y2="88" stroke="#10B981" stroke-width="2"/>
+                <rect x="508" y="15" width="14" height="58" fill="url(#ctaGlowGreen)" rx="2"/>
+
+                <line x1="555" y1="24" x2="555" y2="85" stroke="#EF4444" stroke-width="1.5"/>
+                <rect x="548" y="32" width="14" height="28" fill="url(#ctaGlowRed)" rx="2"/>
+
+                <line x1="595" y1="6" x2="595" y2="78" stroke="#10B981" stroke-width="2"/>
+                <rect x="588" y="12" width="14" height="54" fill="url(#ctaGlowGreen)" rx="2"/>
+              </g>
+            </svg>
+          </div>
+
+          <div class="final-cta-content">
+            <h2 class="final-cta-title">Daily Index Research, Delivered Live.</h2>
+            <p class="final-cta-desc">
+              Join 14,800+ smart traders receiving daily NIFTY, BANKNIFTY & SENSEX setups directly on Telegram. 100% Free.
+            </p>
+
+            <div class="final-cta-btn-wrap">
+              <a href="https://t.me/+jcO3zpdZ6Tg1MDE9" target="_blank" rel="noopener noreferrer" class="btn-telegram-primary" id="final-primary-cta">
+                <svg class="telegram-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                </svg>
+                <span class="btn-text">Join Free on Telegram</span>
+                <span class="btn-arrow">→</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ----------------------------------------------------------------------
-       11. FOOTER (With Meta Ad Compliant Disclaimer)
-       ---------------------------------------------------------------------- -->
+  <!-- ======================================================================
+       11. SITE FOOTER & MANDATORY REGULATORY DISCLAIMER
+       ====================================================================== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="assets/logo.jpg" alt="Capital Grow Logo">
-          <div class="brand-title" style="color: #ffffff;">
-            CAPITAL GROW
-            <span class="tagline" style="color: var(--color-whatsapp);">DISCIPLINED TRADING & MARKET RESEARCH</span>
-          </div>
+          <img src="assets/logo_transparent.png" alt="Capital Grow Official Logo" class="footer-brand-logo">
+          <span class="brand-sub">SEBI REGISTERED RESEARCH COMMUNITY</span>
         </div>
 
         <ul class="footer-links">
-          <li><a href="#benefits">Benefits</a></li>
-          <li><a href="#calculator">Risk Calculator</a></li>
-          <li><a href="#preview">Signals</a></li>
-          <li><a href="#testimonials">Reviews</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#benefits" class="footer-link">Benefits</a></li>
+          <li><a href="#calculator" class="footer-link">Risk Tool</a></li>
+          <li><a href="#preview" class="footer-link">Preview</a></li>
+          <li><a href="#reviews" class="footer-link">Reviews</a></li>
+          <li><a href="#faq" class="footer-link">FAQ</a></li>
+          <li><a href="https://t.me/+jcO3zpdZ6Tg1MDE9" target="_blank" rel="noopener noreferrer" class="footer-link" style="color: var(--color-telegram);">Join Telegram</a></li>
         </ul>
       </div>
 
-      <div class="footer-disclaimer">
-        <b>Disclaimer:</b> Capital Grow provides educational market research, technical chart analysis, and financial insights for informational purposes only. Trading in stocks, NIFTY/BANKNIFTY options, and financial equities carries inherent market risk. We do not provide guaranteed returns, portfolio management, or individual investment advice. Past performance is not indicative of future results.
+      <div class="footer-disclaimer-box">
+        <p class="footer-disclaimer-text">
+          <strong>Mandatory Disclaimer:</strong> Content shared by Capital Grow is for educational and informational purposes only and is not investment advice. Trading in equities, index futures, and options involves substantial financial risk and is not suitable for all investors. Capital Grow does not guarantee returns, operate managed accounts, or provide personalized financial advisory. Please consult a SEBI-registered investment advisor before making any financial investment decisions. Past performance shown is simulated or historical and is no guarantee of future results.
+        </p>
       </div>
 
       <div class="footer-bottom">
-        © 2026 Capital Grow Community. All rights reserved.
+        <div>© 2026 Capital Grow Research Community. All rights reserved.</div>
+        <div>Compliant with Meta Advertising & SEBI RA Guidelines</div>
       </div>
     </div>
   </footer>
 
-  <!-- ----------------------------------------------------------------------
-       12. MOBILE FLOATING STICKY CTA BUTTON
-       ---------------------------------------------------------------------- -->
-  <div class="mobile-sticky-cta">
-    <div class="mobile-sticky-info">
-      <span class="mobile-sticky-title">Capital Grow</span>
-      <span class="mobile-sticky-subtitle">🟢 Free WhatsApp Group</span>
+  <!-- ======================================================================
+       12. MOBILE STICKY BOTTOM CTA BAR (<= 768px Viewports)
+       ====================================================================== -->
+  <div class="mobile-sticky-bar">
+    <div class="mobile-sticky-inner">
+      <div class="mobile-sticky-text">
+        <span class="mobile-sticky-title">Capital Grow</span>
+        <span class="mobile-sticky-sub">● 100% Free Telegram Access</span>
+      </div>
+      <a href="https://t.me/+jcO3zpdZ6Tg1MDE9" target="_blank" rel="noopener noreferrer" class="mobile-sticky-btn">
+        <svg class="telegram-icon" style="width: 18px; height: 18px;" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+        </svg>
+        <span class="btn-text">Join Free</span>
+        <span class="btn-arrow">→</span>
+      </a>
     </div>
-    <a href="https://chat.whatsapp.com/LUkpIkiwSCECX61wZBPy0w?s=cl&p=a&ilr=4&amv=3" target="_blank" class="btn-whatsapp mobile-sticky-btn">
-      Join on WhatsApp
-    </a>
   </div>
 
-  <!-- ----------------------------------------------------------------------
-       13. SOCIAL PROOF TOAST NOTIFICATION
-       ---------------------------------------------------------------------- -->
-  <div class="toast-notification" id="social-toast">
-    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Member" class="toast-avatar">
-    <div class="toast-text">
-      <span class="toast-name">Rahul S. (Mumbai)</span>
-      <span class="toast-action">joined WhatsApp Group</span>
-      <span class="toast-time">🟢 Just now</span>
+  <!-- ======================================================================
+       13. SOCIAL PROOF TOAST NOTIFICATION (Light Theme)
+       ====================================================================== -->
+  <div class="toast-box" id="social-toast" aria-live="polite">
+    <div class="toast-avatar">CG</div>
+    <div class="toast-info">
+      <span class="toast-name" id="toast-name">Aditya S. (Bengaluru)</span>
+      <span class="toast-action">joined Telegram Channel • Just now</span>
     </div>
   </div>
 

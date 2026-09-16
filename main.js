@@ -1,21 +1,21 @@
 /**
- * CAPITAL GROW - LANDING PAGE INTERACTION CONTROLLER
+ * CAPITAL GROW - TELEGRAM COMMUNITY INTERACTION CONTROLLER
+ * Compliant with Meta Advertising & Financial Regulations
+ * Direct CTA: https://t.me/+jcO3zpdZ6Tg1MDE9
  */
 
-const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/LUkpIkiwSCECX61wZBPy0w?s=cl&p=a&ilr=4&amv=3";
+const TELEGRAM_LINK = "https://t.me/+jcO3zpdZ6Tg1MDE9";
 
 document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initFAQAccordion();
-  initPreviewTabs();
-  initLiveSpotCounter();
-  initCountdownTimer();
-  initSocialProofToast();
   initCalculator();
+  initSocialProofToast();
+  initSmoothNav();
 });
 
 /* --------------------------------------------------------------------------
-   1. Interactive Capital Growth Calculator
+   1. Interactive Position Risk & Allocation Tool
    -------------------------------------------------------------------------- */
 function initCalculator() {
   const slider = document.getElementById('capital-slider');
@@ -27,19 +27,20 @@ function initCalculator() {
 
   function formatRupees(amount) {
     if (amount >= 100000) {
-      return `₹${(amount / 100000).toFixed(1)} Lakh`;
+      const inLakhs = amount / 100000;
+      return `₹${inLakhs % 1 === 0 ? inLakhs.toFixed(0) : inLakhs.toFixed(1)} Lakh`;
     }
     return `₹${amount.toLocaleString('en-IN')}`;
   }
 
   function updateCalc() {
-    const val = parseInt(slider.value, 10);
-    const maxRisk = Math.round(val * 0.02); // 2% max risk per trade rule
-    const positionSize = Math.round(val * 0.20); // 20% setup allocation
+    const capital = parseInt(slider.value, 10);
+    const maxRisk = Math.round(capital * 0.02); // 2% strict risk rule
+    const allocation = Math.round(capital * 0.20); // 20% setup allocation rule
 
-    amountDisplay.textContent = formatRupees(val);
+    amountDisplay.textContent = formatRupees(capital);
     if (riskDisplay) riskDisplay.textContent = `₹${maxRisk.toLocaleString('en-IN')}`;
-    if (positionDisplay) positionDisplay.textContent = `₹${positionSize.toLocaleString('en-IN')}`;
+    if (positionDisplay) positionDisplay.textContent = `₹${allocation.toLocaleString('en-IN')}`;
   }
 
   slider.addEventListener('input', updateCalc);
@@ -58,8 +59,8 @@ function initScrollReveal() {
   }
 
   const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -40px 0px'
+    threshold: 0.12,
+    rootMargin: '0px 0px -30px 0px'
   };
 
   const observer = new IntersectionObserver((entries, obs) => {
@@ -82,6 +83,8 @@ function initFAQAccordion() {
 
   faqItems.forEach(item => {
     const header = item.querySelector('.faq-header');
+    if (!header) return;
+
     header.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
 
@@ -99,157 +102,70 @@ function initFAQAccordion() {
 }
 
 /* --------------------------------------------------------------------------
-   4. Interactive Preview Showcase Tabs
-   -------------------------------------------------------------------------- */
-function initPreviewTabs() {
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const sampleContainer = document.getElementById('sample-signal-content');
-
-  const sampleData = {
-    signals: `
-<div class="sample-signal-header">
-  <span class="signal-type-badge">📊 Technical Setup Analysis (Educational)</span>
-  <span style="font-size: 0.775rem; color: #94a3b8;">Today, 09:15 AM</span>
-</div>
-<div class="sample-body">
-  <div>📊 <b>SAMPLE CHART ANALYSIS: NIFTY 24,500 LEVEL</b></div>
-  <div>-------------------------------------</div>
-  <div>🔹 Breakout Zone: 145 - 150</div>
-  <div>🎯 Resistance Level 1: 185</div>
-  <div>🎯 Resistance Level 2: 230</div>
-  <div>🛑 Key Risk Support: 125</div>
-  <div>-------------------------------------</div>
-  <div>💡 <i>Technical Note: Institutional buying support observed near 24,400 level. Shared for educational market study.</i></div>
-</div>`,
-    analysis: `
-<div class="sample-signal-header">
-  <span class="signal-type-badge" style="background: rgba(37, 99, 235, 0.2); color: #60a5fa;">📊 Daily Market Brief</span>
-  <span style="font-size: 0.775rem; color: #94a3b8;">Today, 08:30 AM</span>
-</div>
-<div class="sample-body">
-  <div>🧠 <b>Pre-Market Strategy & Key Levels</b></div>
-  <div>-------------------------------------</div>
-  <div>• Global Markets: Tech sector leading positive momentum (+1.4%).</div>
-  <div>• Key Resistance: 24,650</div>
-  <div>• Key Support: 24,350</div>
-  <div>-------------------------------------</div>
-  <div>📌 <b>Action Plan:</b> Look for dips near 24,400 for long positions. Avoid aggressive shorts today.</div>
-</div>`,
-    wealth: `
-<div class="sample-signal-header">
-  <span class="signal-type-badge" style="background: rgba(234, 179, 8, 0.2); color: #facc15;">💡 Wealth Blueprint</span>
-  <span style="font-size: 0.775rem; color: #94a3b8;">Yesterday</span>
-</div>
-<div class="sample-body">
-  <div>💎 <b>Portfolio Building: The 50/30/20 Capital Rule</b></div>
-  <div>-------------------------------------</div>
-  <div>• 50% Core Allocation: High-quality blue-chip compounding stocks.</div>
-  <div>• 30% Growth & Momentum: Tactical swing trades & breakout stocks.</div>
-  <div>• 20% Hedging & Cash: Preserving liquidity for market corrections.</div>
-  <div>-------------------------------------</div>
-  <div>📥 <i>Full 14-page PDF guide uploaded in community files!</i></div>
-</div>`
-  };
-
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const target = btn.getAttribute('data-target');
-      if (sampleData[target] && sampleContainer) {
-        sampleContainer.innerHTML = sampleData[target];
-      }
-    });
-  });
-}
-
-/* --------------------------------------------------------------------------
-   5. Live Spot Counter Animation
-   -------------------------------------------------------------------------- */
-function initLiveSpotCounter() {
-  const spotCounter = document.getElementById('spots-left-count');
-  const heroMemberCount = document.getElementById('hero-member-count');
-  if (!spotCounter) return;
-
-  let spots = 108;
-  let members = 4892;
-
-  setInterval(() => {
-    if (spots > 14) {
-      const drop = Math.floor(Math.random() * 2) + 1;
-      spots -= drop;
-      members += drop;
-      
-      spotCounter.textContent = spots;
-      if (heroMemberCount) {
-        heroMemberCount.textContent = members.toLocaleString();
-      }
-
-      spotCounter.classList.add('highlight-pulse');
-      setTimeout(() => spotCounter.classList.remove('highlight-pulse'), 500);
-    }
-  }, 12000);
-}
-
-/* --------------------------------------------------------------------------
-   6. Countdown Timer
-   -------------------------------------------------------------------------- */
-function initCountdownTimer() {
-  const timerElement = document.getElementById('cta-timer');
-  if (!timerElement) return;
-
-  let totalSeconds = 14 * 60 + 32;
-
-  setInterval(() => {
-    if (totalSeconds > 0) {
-      totalSeconds--;
-      const minutes = Math.floor(totalSeconds / 60);
-      const seconds = totalSeconds % 60;
-      timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-    }
-  }, 1000);
-}
-
-/* --------------------------------------------------------------------------
-   7. Social Proof Toast Notification System
+   4. Social Proof Toast Notification (Subtle & Non-Intrusive)
    -------------------------------------------------------------------------- */
 function initSocialProofToast() {
   const toast = document.getElementById('social-toast');
-  if (!toast) return;
+  const nameEl = document.getElementById('toast-name');
+  if (!toast || !nameEl) return;
 
-  const members = [
-    { name: "Rahul S.", city: "Mumbai", time: "Just now", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" },
-    { name: "Priya V.", city: "Bengaluru", time: "2 mins ago", img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80" },
-    { name: "Amit K.", city: "Delhi", time: "4 mins ago", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" },
-    { name: "Vikram R.", city: "Pune", time: "6 mins ago", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" }
+  const joiners = [
+    { name: "Aditya S.", city: "Bengaluru" },
+    { name: "Rohan M.", city: "Mumbai" },
+    { name: "Vikram R.", city: "Pune" },
+    { name: "Kunal P.", city: "Delhi NCR" },
+    { name: "Suresh N.", city: "Hyderabad" },
+    { name: "Deepak G.", city: "Ahmedabad" },
+    { name: "Meera K.", city: "Chennai" }
   ];
 
   let index = 0;
 
-  function showNextToast() {
-    const data = members[index];
-    const avatarEl = toast.querySelector('.toast-avatar');
-    const nameEl = toast.querySelector('.toast-name');
-    const actionEl = toast.querySelector('.toast-action');
-    const timeEl = toast.querySelector('.toast-time');
-
-    if (avatarEl && nameEl && actionEl && timeEl) {
-      avatarEl.src = data.img;
-      nameEl.textContent = `${data.name} (${data.city})`;
-      actionEl.textContent = "joined WhatsApp Group";
-      timeEl.textContent = `🟢 ${data.time}`;
-    }
-
+  function showToast() {
+    const member = joiners[index];
+    nameEl.textContent = `${member.name} (${member.city})`;
     toast.classList.add('show');
 
     setTimeout(() => {
       toast.classList.remove('show');
     }, 4500);
 
-    index = (index + 1) % members.length;
+    index = (index + 1) % joiners.length;
   }
 
-  setTimeout(showNextToast, 4000);
-  setInterval(showNextToast, 16000);
+  // First toast appears after 5 seconds, then every 22 seconds
+  setTimeout(showToast, 5000);
+  setInterval(showToast, 22000);
+}
+
+/* --------------------------------------------------------------------------
+   5. Smooth Anchor Nav & CTA Event Telemetry
+   -------------------------------------------------------------------------- */
+function initSmoothNav() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Track CTA clicks cleanly if analytics are enabled
+  document.querySelectorAll('a[href*="t.me"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (window.gtag) {
+        window.gtag('event', 'join_telegram_click', {
+          event_category: 'engagement',
+          event_label: btn.textContent.trim()
+        });
+      }
+    });
+  });
 }
