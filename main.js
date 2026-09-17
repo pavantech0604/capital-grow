@@ -1,10 +1,9 @@
 /**
- * CAPITAL GROW - TELEGRAM COMMUNITY INTERACTION CONTROLLER
- * Compliant with Meta Advertising & Financial Regulations
- * Direct CTA: https://t.me/+jcO3zpdZ6Tg1MDE9
+ * CAPITAL GROW - TELEGRAM GROUP & COMMUNITY INTERACTION CONTROLLER
+ * Direct Group Invite: https://t.me/+V-tniChKYqxmNTg1
  */
 
-const TELEGRAM_LINK = "https://t.me/+jcO3zpdZ6Tg1MDE9";
+const TELEGRAM_LINK = "https://t.me/+V-tniChKYqxmNTg1";
 
 document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
@@ -12,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCalculator();
   initSocialProofToast();
   initSmoothNav();
+  initUniversalTelegramTriggers();
 });
 
 /* --------------------------------------------------------------------------
@@ -102,7 +102,7 @@ function initFAQAccordion() {
 }
 
 /* --------------------------------------------------------------------------
-   4. Social Proof Toast Notification (Subtle & Non-Intrusive)
+   4. Social Proof Toast Notification (Subtle, Real-time & Clickable)
    -------------------------------------------------------------------------- */
 function initSocialProofToast() {
   const toast = document.getElementById('social-toast');
@@ -133,9 +133,14 @@ function initSocialProofToast() {
     index = (index + 1) % joiners.length;
   }
 
-  // First toast appears after 5 seconds, then every 22 seconds
-  setTimeout(showToast, 5000);
-  setInterval(showToast, 22000);
+  // Clicking toast directly opens Telegram Group
+  toast.addEventListener('click', () => {
+    window.open(TELEGRAM_LINK, '_blank', 'noopener,noreferrer');
+  });
+
+  // First toast appears after 4 seconds, then every 20 seconds
+  setTimeout(showToast, 4000);
+  setInterval(showToast, 20000);
 }
 
 /* --------------------------------------------------------------------------
@@ -167,5 +172,51 @@ function initSmoothNav() {
         });
       }
     });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   6. Universal Click-to-Join Telegram Trigger System
+   Ensures EVERY interactive element, card, preview, and badge converts!
+   -------------------------------------------------------------------------- */
+function initUniversalTelegramTriggers() {
+  const triggerSelectors = [
+    '[data-join-telegram="true"]',
+    '.tg-post-card',
+    '.chart-container-card',
+    '.stat-box',
+    '.feature-pill',
+    '.pillar-card',
+    '.review-card',
+    '.calc-stat-box',
+    '.pill-authority',
+    '.pill-status',
+    '.toast-box'
+  ];
+
+  document.addEventListener('click', (e) => {
+    // Never intercept active slider adjustments or accordion toggles
+    if (e.target.closest('#capital-slider') || e.target.closest('.faq-header')) {
+      return;
+    }
+
+    const matchedCard = e.target.closest(triggerSelectors.join(', '));
+    if (matchedCard) {
+      // If it is already a native link to Telegram, let browser handle naturally
+      if (matchedCard.tagName === 'A' && matchedCard.getAttribute('href')?.includes('t.me')) {
+        return;
+      }
+      
+      // Open Telegram Group in new window
+      window.open(TELEGRAM_LINK, '_blank', 'noopener,noreferrer');
+
+      // Telemetry event if analytics exists
+      if (window.gtag) {
+        window.gtag('event', 'telegram_card_join_click', {
+          event_category: 'conversion',
+          event_label: matchedCard.className || 'card_trigger'
+        });
+      }
+    }
   });
 }

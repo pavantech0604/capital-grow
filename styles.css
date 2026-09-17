@@ -549,35 +549,74 @@ main {
   margin-bottom: 20px;
 }
 
-.pill-sebi {
+.pill-authority {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: var(--color-green-light);
-  border: 1px solid var(--color-green-border);
-  color: var(--color-green-text);
-  padding: 6px 16px;
+  gap: 7px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(2, 132, 199, 0.1) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #065F46;
+  padding: 7px 18px;
   border-radius: var(--radius-full);
   font-size: 0.775rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.15);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.pill-authority::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: badgeShimmer 3.5s infinite;
+}
+
+@keyframes badgeShimmer {
+  0% { left: -100%; }
+  30% { left: 140%; }
+  100% { left: 140%; }
+}
+
+.pill-authority:hover {
+  transform: translateY(-2px);
+  border-color: #10B981;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+  color: #047857;
 }
 
 .pill-status {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: var(--color-gold-light);
-  border: 1px solid var(--color-gold-border);
-  color: var(--color-gold-text);
-  padding: 6px 16px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(217, 119, 6, 0.08) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #92400E;
+  padding: 7px 18px;
   border-radius: var(--radius-full);
   font-size: 0.775rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.04em;
+  text-decoration: none;
   box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pill-status:hover {
+  transform: translateY(-2px);
+  border-color: #F59E0B;
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.3);
+  color: #78350F;
 }
 
 .pulse-dot {
@@ -781,16 +820,19 @@ main {
   border-radius: var(--radius-full);
   padding: 8px 18px;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-bull-navy);
   box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  text-decoration: none;
   transition: all var(--transition-fast);
 }
 
 .feature-pill:hover {
-  border-color: var(--color-grow-green);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  border-color: var(--color-telegram);
+  color: var(--color-telegram);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 136, 204, 0.22);
 }
 
 .pill-tag {
@@ -836,13 +878,15 @@ main {
   padding: 24px 18px;
   text-align: center;
   box-shadow: var(--shadow-md);
+  cursor: pointer;
+  text-decoration: none;
   transition: all var(--transition-fast);
 }
 
 .stat-box:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-green-border);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -4px rgba(0, 136, 204, 0.2);
+  border-color: var(--color-telegram);
 }
 
 .stat-val {
@@ -1023,12 +1067,46 @@ main {
   border-radius: var(--radius-lg);
   padding: 20px 22px;
   box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  position: relative;
   transition: all var(--transition-fast);
 }
 
 .tg-post-card:hover {
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-green-border);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px -4px rgba(0, 136, 204, 0.22);
+  border-color: var(--color-telegram);
+}
+
+/* Telegram Click Hint Banner inside card */
+.tg-click-hint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(0, 136, 204, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
+  border: 1px dashed rgba(0, 136, 204, 0.35);
+  border-radius: 8px;
+  padding: 9px 14px;
+  margin-top: 14px;
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: var(--color-telegram);
+  transition: all var(--transition-fast);
+}
+
+.tg-post-card:hover .tg-click-hint {
+  background: var(--btn-telegram);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+}
+
+.tg-click-hint .hint-arrow {
+  transition: transform 0.2s ease;
+}
+
+.tg-post-card:hover .tg-click-hint .hint-arrow {
+  transform: translateX(4px);
 }
 
 .tg-post-header {
@@ -1275,6 +1353,8 @@ main {
   border: 1px solid var(--border-card);
   border-radius: var(--radius-xl);
   padding: 34px 30px;
+  cursor: pointer;
+  text-decoration: none;
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
@@ -1295,8 +1375,8 @@ main {
 .pillar-card:hover {
   transform: translateY(-4px);
   background: #FFFFFF;
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-green-border);
+  box-shadow: 0 14px 28px -6px rgba(0, 136, 204, 0.16);
+  border-color: var(--color-telegram-light);
 }
 
 .pillar-card:hover::before {
@@ -1464,6 +1544,14 @@ main {
   border-radius: var(--radius-md);
   padding: 18px 14px;
   text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.calc-stat-box:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-telegram);
+  box-shadow: 0 6px 16px rgba(0, 136, 204, 0.15);
 }
 
 .calc-stat-lbl {
@@ -1540,13 +1628,15 @@ main {
   flex-direction: column;
   justify-content: space-between;
   box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  text-decoration: none;
   transition: all var(--transition-fast);
 }
 
 .review-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-green-border);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px -6px rgba(0, 136, 204, 0.16);
+  border-color: var(--color-telegram-light);
 }
 
 .review-stars {
@@ -1688,6 +1778,30 @@ main {
 
 .faq-item.active .faq-content {
   display: block;
+}
+
+.faq-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  background: rgba(0, 136, 204, 0.08);
+  border: 1px solid rgba(0, 136, 204, 0.25);
+  color: var(--color-telegram);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.faq-cta-link:hover {
+  background: var(--btn-telegram);
+  color: #FFFFFF;
+  border-color: transparent;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
 }
 
 /* --------------------------------------------------------------------------
@@ -2042,6 +2156,14 @@ main {
 .toast-box.show {
   transform: translateY(0);
   opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.toast-box:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(0, 136, 204, 0.22);
+  border-color: var(--color-telegram);
 }
 
 .toast-avatar {
