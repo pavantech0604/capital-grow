@@ -1,222 +1,171 @@
 /**
- * CAPITAL GROW - TELEGRAM GROUP & COMMUNITY INTERACTION CONTROLLER
- * Direct Group Invite: https://t.me/+V-tniChKYqxmNTg1
+ * ============================================================================
+ * CAPITAL GROW - TELEGRAM GROUP & META PIXEL INTERACTION CONTROLLER
+ * Direct Group Invite: https://t.me/capsgrowtm
+ * ============================================================================
+ * 
+ * META PIXEL INTEGRATION:
+ * 1. Base Pixel initialized in index.html with 'PageView'.
+ * 2. On any CTA or feature click, 'TelegramJoinClick' and 'Lead' events are
+ *    dispatched with lead parameters.
+ * 3. Verify in browser console: window.testTelegramPixelEvent()
+ * ============================================================================
  */
 
-const TELEGRAM_LINK = "https://t.me/+V-tniChKYqxmNTg1";
+const TELEGRAM_LINK = "https://t.me/capsgrowtm";
 
 document.addEventListener('DOMContentLoaded', () => {
-  initScrollReveal();
-  initFAQAccordion();
-  initCalculator();
-  initSocialProofToast();
-  initSmoothNav();
-  initUniversalTelegramTriggers();
+  initMetaPixelTracking();
+  initDisclaimerModal();
 });
 
 /* --------------------------------------------------------------------------
-   1. Interactive Position Risk & Allocation Tool
+   1. Meta Pixel & Conversion Analytics Tracking
    -------------------------------------------------------------------------- */
-function initCalculator() {
-  const slider = document.getElementById('capital-slider');
-  const amountDisplay = document.getElementById('calc-amount-display');
-  const riskDisplay = document.getElementById('calc-risk-display');
-  const positionDisplay = document.getElementById('calc-position-display');
+let lastTelegramClickTime = 0;
 
-  if (!slider || !amountDisplay) return;
-
-  function formatRupees(amount) {
-    if (amount >= 100000) {
-      const inLakhs = amount / 100000;
-      return `₹${inLakhs % 1 === 0 ? inLakhs.toFixed(0) : inLakhs.toFixed(1)} Lakh`;
-    }
-    return `₹${amount.toLocaleString('en-IN')}`;
-  }
-
-  function updateCalc() {
-    const capital = parseInt(slider.value, 10);
-    const maxRisk = Math.round(capital * 0.02); // 2% strict risk rule
-    const allocation = Math.round(capital * 0.20); // 20% setup allocation rule
-
-    amountDisplay.textContent = formatRupees(capital);
-    if (riskDisplay) riskDisplay.textContent = `₹${maxRisk.toLocaleString('en-IN')}`;
-    if (positionDisplay) positionDisplay.textContent = `₹${allocation.toLocaleString('en-IN')}`;
-  }
-
-  slider.addEventListener('input', updateCalc);
-  updateCalc();
-}
-
-/* --------------------------------------------------------------------------
-   2. Scroll Reveal Animations (IntersectionObserver)
-   -------------------------------------------------------------------------- */
-function initScrollReveal() {
-  const revealElements = document.querySelectorAll('.reveal');
-  
-  if (!('IntersectionObserver' in window)) {
-    revealElements.forEach(el => el.classList.add('active'));
+/**
+ * Dispatches Meta Pixel and Analytics events when a user clicks any conversion element.
+ * Debounced to prevent accidental double-clicks within 400ms.
+ * 
+ * @param {string} sourceLabel - Identifier of the clicked element (e.g. 'primary_telegram_cta')
+ */
+function trackTelegramJoin(sourceLabel = 'telegram_button') {
+  const now = Date.now();
+  if (now - lastTelegramClickTime < 400) {
     return;
   }
+  lastTelegramClickTime = now;
 
-  const observerOptions = {
-    threshold: 0.12,
-    rootMargin: '0px 0px -30px 0px'
+  const eventPayload = {
+    value: 1,
+    currency: 'INR',
+    content_name: 'TelegramGroupJoin',
+    content_category: 'Lead',
+    button_location: sourceLabel,
+    page_title: document.title,
+    landing_page: window.location.pathname || '/'
   };
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
+  // 1. Fire Meta Pixel 'TelegramJoinClick' & 'Lead'
+  if (typeof window.fbq === 'function') {
+    try {
+      window.fbq('track', 'TelegramJoinClick', eventPayload);
+      window.fbq('trackCustom', 'TelegramJoinClick', eventPayload);
 
-  revealElements.forEach(el => observer.observe(el));
-}
-
-/* --------------------------------------------------------------------------
-   3. FAQ Accordion Logic
-   -------------------------------------------------------------------------- */
-function initFAQAccordion() {
-  const faqItems = document.querySelectorAll('.faq-item');
-
-  faqItems.forEach(item => {
-    const header = item.querySelector('.faq-header');
-    if (!header) return;
-
-    header.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-
-      // Close all accordion items
-      faqItems.forEach(otherItem => {
-        otherItem.classList.remove('active');
+      // Meta standard 'Lead' event for campaign objective optimization
+      window.fbq('track', 'Lead', {
+        value: 1,
+        currency: 'INR',
+        content_name: 'TelegramGroupJoin',
+        content_category: 'Lead'
       });
 
-      // Toggle clicked item
-      if (!isActive) {
-        item.classList.add('active');
-      }
-    });
-  });
-}
-
-/* --------------------------------------------------------------------------
-   4. Social Proof Toast Notification (Subtle, Real-time & Clickable)
-   -------------------------------------------------------------------------- */
-function initSocialProofToast() {
-  const toast = document.getElementById('social-toast');
-  const nameEl = document.getElementById('toast-name');
-  if (!toast || !nameEl) return;
-
-  const joiners = [
-    { name: "Aditya S.", city: "Bengaluru" },
-    { name: "Rohan M.", city: "Mumbai" },
-    { name: "Vikram R.", city: "Pune" },
-    { name: "Kunal P.", city: "Delhi NCR" },
-    { name: "Suresh N.", city: "Hyderabad" },
-    { name: "Deepak G.", city: "Ahmedabad" },
-    { name: "Meera K.", city: "Chennai" }
-  ];
-
-  let index = 0;
-
-  function showToast() {
-    const member = joiners[index];
-    nameEl.textContent = `${member.name} (${member.city})`;
-    toast.classList.add('show');
-
-    setTimeout(() => {
-      toast.classList.remove('show');
-    }, 4500);
-
-    index = (index + 1) % joiners.length;
+      console.log(`%c[Meta Pixel] Event 'TelegramJoinClick' & 'Lead' fired! Source: ${sourceLabel}`, 'color: #0088CC; font-weight: bold;', eventPayload);
+    } catch (err) {
+      console.error('[Meta Pixel] Error firing event:', err);
+    }
+  } else {
+    console.warn('[Meta Pixel] fbq function not detected. Ensure ad blockers are disabled for tracking.');
   }
 
-  // Clicking toast directly opens Telegram Group
-  toast.addEventListener('click', () => {
-    window.open(TELEGRAM_LINK, '_blank', 'noopener,noreferrer');
-  });
-
-  // First toast appears after 4 seconds, then every 20 seconds
-  setTimeout(showToast, 4000);
-  setInterval(showToast, 20000);
+  // 2. Google Analytics (gtag.js) fallback if present
+  if (typeof window.gtag === 'function') {
+    try {
+      window.gtag('event', 'join_telegram_click', {
+        event_category: 'conversion',
+        event_label: sourceLabel,
+        value: 1
+      });
+    } catch (err) {}
+  }
 }
 
-/* --------------------------------------------------------------------------
-   5. Smooth Anchor Nav & CTA Event Telemetry
-   -------------------------------------------------------------------------- */
-function initSmoothNav() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  });
-
-  // Track CTA clicks cleanly if analytics are enabled
-  document.querySelectorAll('a[href*="t.me"]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (window.gtag) {
-        window.gtag('event', 'join_telegram_click', {
-          event_category: 'engagement',
-          event_label: btn.textContent.trim()
-        });
-      }
+/**
+ * Initializes click listeners on all Telegram links and conversion pills.
+ */
+function initMetaPixelTracking() {
+  const conversionLinks = document.querySelectorAll('a[href*="t.me"]');
+  
+  conversionLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const sourceLabel = link.id || link.className.split(' ')[0] || 'telegram_link';
+      trackTelegramJoin(sourceLabel);
     });
   });
 }
 
-/* --------------------------------------------------------------------------
-   6. Universal Click-to-Join Telegram Trigger System
-   Ensures EVERY interactive element, card, preview, and badge converts!
-   -------------------------------------------------------------------------- */
-function initUniversalTelegramTriggers() {
-  const triggerSelectors = [
-    '[data-join-telegram="true"]',
-    '.tg-post-card',
-    '.chart-container-card',
-    '.stat-box',
-    '.feature-pill',
-    '.pillar-card',
-    '.review-card',
-    '.calc-stat-box',
-    '.pill-authority',
-    '.pill-status',
-    '.toast-box'
-  ];
+/**
+ * Global helper function for console testing and verification.
+ * Run in browser console: window.testTelegramPixelEvent()
+ */
+window.testTelegramPixelEvent = function(testLocation = 'console_test') {
+  console.group('🔍 Meta Pixel Verification Diagnostic');
+  
+  if (typeof window.fbq !== 'function') {
+    console.error('❌ fbq is NOT defined on window. Check if Meta Pixel script is in <head> or blocked by ad-blocker.');
+    console.groupEnd();
+    return false;
+  }
+  console.log('✅ window.fbq is active and initialized.');
+  console.log('🚀 Triggering test TelegramJoinClick & Lead events...');
+  trackTelegramJoin(testLocation);
+  console.log('💡 Verification Steps:');
+  console.log('1. Open Meta Pixel Helper Chrome extension to inspect fired events.');
+  console.log('2. Check Meta Events Manager "Test Events" tab.');
+  console.groupEnd();
+  return true;
+};
 
-  document.addEventListener('click', (e) => {
-    // Never intercept active slider adjustments or accordion toggles
-    if (e.target.closest('#capital-slider') || e.target.closest('.faq-header')) {
-      return;
+/* --------------------------------------------------------------------------
+   2. Regulatory Disclaimer Modal Controller
+   -------------------------------------------------------------------------- */
+function initDisclaimerModal() {
+  const modal = document.getElementById('disclaimer-modal');
+  const openBtn = document.getElementById('open-disclaimer-btn');
+  const closeBtn = document.getElementById('close-disclaimer-btn');
+  const dismissBtn = document.getElementById('modal-dismiss-btn');
+
+  if (!modal || !openBtn) return;
+
+  function openModal() {
+    modal.hidden = false;
+    // Force layout reflow before adding transition class
+    void modal.offsetHeight;
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    setTimeout(() => {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+    }, 250);
+  }
+
+  openBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    openModal();
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', closeModal);
+  }
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
     }
+  });
 
-    const matchedCard = e.target.closest(triggerSelectors.join(', '));
-    if (matchedCard) {
-      // If it is already a native link to Telegram, let browser handle naturally
-      if (matchedCard.tagName === 'A' && matchedCard.getAttribute('href')?.includes('t.me')) {
-        return;
-      }
-      
-      // Open Telegram Group in new window
-      window.open(TELEGRAM_LINK, '_blank', 'noopener,noreferrer');
-
-      // Telemetry event if analytics exists
-      if (window.gtag) {
-        window.gtag('event', 'telegram_card_join_click', {
-          event_category: 'conversion',
-          event_label: matchedCard.className || 'card_trigger'
-        });
-      }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.hidden) {
+      closeModal();
     }
   });
 }
